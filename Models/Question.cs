@@ -6,9 +6,22 @@ namespace QuizApp.WebAPI.Models;
 public class Question : BaseEntity
 {
     [Required]
-    [StringLength(255, MinimumLength = 5)]
+    [StringLength(5000, MinimumLength = 5)]
     public required string Content { get; set; }
 
     [Required]
-    public required bool IsCorrect { get; set; } = false;
+    [EnumDataType(typeof(QuestionTypeEnum), ErrorMessage ="Invalid Question Type")]
+    public required string QuestionType { get; set; }
+
+}
+
+
+public enum QuestionTypeEnum
+{
+    MultipleChoice,
+    SingleChoice,
+    TrueFalse,
+    FillInTheBlanks,
+    ShortAnswer,
+    LongAnswer
 }

@@ -20,9 +20,3 @@ public class Quiz : BaseEntity
     public string? ThumbnailUrl { get; set; }
 
 }
-
-public class BaseEntity
-{
-    [Required]
-    public required Guid Id { get; set; }
-}
