@@ -10,9 +10,12 @@ public class Question : BaseEntity
     public required string Content { get; set; }
 
     [Required]
-    [EnumDataType(typeof(QuestionTypeEnum), ErrorMessage ="Invalid Question Type")]
+    [EnumDataType(typeof(QuestionTypeEnum), ErrorMessage = "Invalid Question Type")]
     public required string QuestionType { get; set; }
 
+    public ICollection<Quiz> Quizzes { get; set; } = [];
+
+    public ICollection<Answer> Answers { get; set; } = [];
 }
 
 

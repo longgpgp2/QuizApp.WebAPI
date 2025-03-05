@@ -6,4 +6,6 @@ public class BaseEntity
 {
     [Required]
     public required Guid Id { get; set; }
+
+    public bool IsDeleted { get; set; }
 }

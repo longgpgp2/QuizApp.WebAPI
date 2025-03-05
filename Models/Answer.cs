@@ -11,4 +11,8 @@ public class Answer : BaseEntity
 
     [Required]
     public required bool IsCorrect { get; set; } = false;
+
+    public Guid QuestionId { get; set; }
+
+    public Question? Question { get; set; }
 }

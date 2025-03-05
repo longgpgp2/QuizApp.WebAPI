@@ -19,4 +19,8 @@ public class Quiz : BaseEntity
     [StringLength(500)]
     public string? ThumbnailUrl { get; set; }
 
+    public ICollection<UserQuiz> UserQuizzes { get; set; } = [];
+
+    public ICollection<Question> Questions { get; set; } = [];
+
 }
