@@ -1,8 +1,12 @@
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using Microsoft.OpenApi.Models;
 using QuizApp.WebAPI.Data;
+using QuizApp.WebAPI.Models;
 using QuizApp.WebAPI.Repositories;
+using QuizApp.WebAPI.Services;
+using QuizApp.WebAPI.Services.BaseServices;
 using QuizApp.WebAPI.UnitOfWork;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -20,7 +24,20 @@ builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepositor
 
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
+builder.Services.AddScoped(typeof(IBaseService<>), typeof(BaseService<>));
+
+builder.Services.AddScoped<IQuizService, QuizService>();
+
+builder.Services.AddScoped<IQuestionService, QuestionService>();
+
+builder.Services.AddScoped<IAnswerService, AnswerService>();
+
+
 builder.Services.AddSwaggerGen();
+
+builder.Services.AddIdentity<User, Role>()
+    .AddEntityFrameworkStores<QuizAppDbContext>()
+    .AddDefaultTokenProviders();
 
 var app = builder.Build();
 
