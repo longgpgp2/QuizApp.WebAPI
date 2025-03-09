@@ -1,0 +1,12 @@
+D:\FSA\NWEC\ASM01\QuizApp.Models\bin\Debug\net9.0\QuizApp.Models.deps.json
+D:\FSA\NWEC\ASM01\QuizApp.Models\bin\Debug\net9.0\QuizApp.Models.dll
+D:\FSA\NWEC\ASM01\QuizApp.Models\bin\Debug\net9.0\QuizApp.Models.pdb
+D:\FSA\NWEC\ASM01\QuizApp.Models\obj\Debug\net9.0\QuizApp.Models.csproj.AssemblyReference.cache
+D:\FSA\NWEC\ASM01\QuizApp.Models\obj\Debug\net9.0\QuizApp.Models.GeneratedMSBuildEditorConfig.editorconfig
+D:\FSA\NWEC\ASM01\QuizApp.Models\obj\Debug\net9.0\QuizApp.Models.AssemblyInfoInputs.cache
+D:\FSA\NWEC\ASM01\QuizApp.Models\obj\Debug\net9.0\QuizApp.Models.AssemblyInfo.cs
+D:\FSA\NWEC\ASM01\QuizApp.Models\obj\Debug\net9.0\QuizApp.Models.csproj.CoreCompileInputs.cache
+D:\FSA\NWEC\ASM01\QuizApp.Models\obj\Debug\net9.0\QuizApp.Models.dll
+D:\FSA\NWEC\ASM01\QuizApp.Models\obj\Debug\net9.0\refint\QuizApp.Models.dll
+D:\FSA\NWEC\ASM01\QuizApp.Models\obj\Debug\net9.0\QuizApp.Models.pdb
+D:\FSA\NWEC\ASM01\QuizApp.Models\obj\Debug\net9.0\ref\QuizApp.Models.dll

@@ -1,0 +1,15 @@
+D:\FSA\NWEC\ASM01\QuizApp.Data\obj\Debug\net9.0\QuizApp.Data.csproj.AssemblyReference.cache
+D:\FSA\NWEC\ASM01\QuizApp.Data\obj\Debug\net9.0\QuizApp.Data.GeneratedMSBuildEditorConfig.editorconfig
+D:\FSA\NWEC\ASM01\QuizApp.Data\obj\Debug\net9.0\QuizApp.Data.AssemblyInfoInputs.cache
+D:\FSA\NWEC\ASM01\QuizApp.Data\obj\Debug\net9.0\QuizApp.Data.AssemblyInfo.cs
+D:\FSA\NWEC\ASM01\QuizApp.Data\obj\Debug\net9.0\QuizApp.Data.csproj.CoreCompileInputs.cache
+D:\FSA\NWEC\ASM01\QuizApp.Data\bin\Debug\net9.0\QuizApp.Data.deps.json
+D:\FSA\NWEC\ASM01\QuizApp.Data\bin\Debug\net9.0\QuizApp.Data.dll
+D:\FSA\NWEC\ASM01\QuizApp.Data\bin\Debug\net9.0\QuizApp.Data.pdb
+D:\FSA\NWEC\ASM01\QuizApp.Data\obj\Debug\net9.0\QuizApp.Data.dll
+D:\FSA\NWEC\ASM01\QuizApp.Data\obj\Debug\net9.0\refint\QuizApp.Data.dll
+D:\FSA\NWEC\ASM01\QuizApp.Data\obj\Debug\net9.0\QuizApp.Data.pdb
+D:\FSA\NWEC\ASM01\QuizApp.Data\obj\Debug\net9.0\ref\QuizApp.Data.dll
+D:\FSA\NWEC\ASM01\QuizApp.Data\bin\Debug\net9.0\QuizApp.Models.dll
+D:\FSA\NWEC\ASM01\QuizApp.Data\bin\Debug\net9.0\QuizApp.Models.pdb
+D:\FSA\NWEC\ASM01\QuizApp.Data\obj\Debug\net9.0\QuizApp..6E8DA345.Up2Date

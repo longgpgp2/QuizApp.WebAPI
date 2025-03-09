@@ -1,0 +1,17 @@
+D:\FSA\NWEC\ASM01\QuizApp.Business\bin\Debug\net9.0\QuizApp.Business.deps.json
+D:\FSA\NWEC\ASM01\QuizApp.Business\bin\Debug\net9.0\QuizApp.Business.dll
+D:\FSA\NWEC\ASM01\QuizApp.Business\bin\Debug\net9.0\QuizApp.Business.pdb
+D:\FSA\NWEC\ASM01\QuizApp.Business\bin\Debug\net9.0\QuizApp.Data.dll
+D:\FSA\NWEC\ASM01\QuizApp.Business\bin\Debug\net9.0\QuizApp.Data.pdb
+D:\FSA\NWEC\ASM01\QuizApp.Business\obj\Debug\net9.0\QuizApp.Business.csproj.AssemblyReference.cache
+D:\FSA\NWEC\ASM01\QuizApp.Business\obj\Debug\net9.0\QuizApp.Business.GeneratedMSBuildEditorConfig.editorconfig
+D:\FSA\NWEC\ASM01\QuizApp.Business\obj\Debug\net9.0\QuizApp.Business.AssemblyInfoInputs.cache
+D:\FSA\NWEC\ASM01\QuizApp.Business\obj\Debug\net9.0\QuizApp.Business.AssemblyInfo.cs
+D:\FSA\NWEC\ASM01\QuizApp.Business\obj\Debug\net9.0\QuizApp.Business.csproj.CoreCompileInputs.cache
+D:\FSA\NWEC\ASM01\QuizApp.Business\obj\Debug\net9.0\QuizApp..C8BE531C.Up2Date
+D:\FSA\NWEC\ASM01\QuizApp.Business\obj\Debug\net9.0\QuizApp.Business.dll
+D:\FSA\NWEC\ASM01\QuizApp.Business\obj\Debug\net9.0\refint\QuizApp.Business.dll
+D:\FSA\NWEC\ASM01\QuizApp.Business\obj\Debug\net9.0\QuizApp.Business.pdb
+D:\FSA\NWEC\ASM01\QuizApp.Business\obj\Debug\net9.0\ref\QuizApp.Business.dll
+D:\FSA\NWEC\ASM01\QuizApp.Business\bin\Debug\net9.0\QuizApp.Models.dll
+D:\FSA\NWEC\ASM01\QuizApp.Business\bin\Debug\net9.0\QuizApp.Models.pdb
