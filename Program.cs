@@ -2,6 +2,8 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using Microsoft.OpenApi.Models;
+using QuizApp.Business.Services;
+using QuizApp.Business.Services.AuthService;
 using QuizApp.WebAPI.Data;
 using QuizApp.WebAPI.Models;
 using QuizApp.WebAPI.Repositories;
@@ -32,6 +34,14 @@ builder.Services.AddScoped<IQuestionService, QuestionService>();
 
 builder.Services.AddScoped<IAnswerService, AnswerService>();
 
+builder.Services.AddScoped<IUserService, UserService>();
+
+builder.Services.AddScoped<IRoleService, RoleService>();
+
+builder.Services.AddLogging();
+
+builder.Logging.AddConsole();
+builder.Logging.AddDebug();
 
 builder.Services.AddSwaggerGen();
 
