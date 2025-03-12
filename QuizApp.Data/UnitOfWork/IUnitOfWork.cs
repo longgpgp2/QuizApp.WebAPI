@@ -14,33 +14,38 @@ public interface IUnitOfWork : IDisposable
 
     IGenericRepository<Question> QuestionRepository { get; }
 
-    IGenericRepository<Answer> AnswerRepository { get; }
+    IRepository<UserQuiz> UserQuizRepository { get; }
+
+    IRepository<QuizQuestion> QuizQuestionRepository { get; }
+
+    IRepository<UserAnswer> UserAnswerRepository { get; }
 
     IGenericRepository<User> UserRepository { get; }
 
     IGenericRepository<Role> RoleRepository { get; }
 
-    IRepository<UserAnswer> UserAnswerRepository { get; }
-
-    IRepository<QuizQuestion> QuizQuestionRepository { get; }
-
-    IRepository<UserQuiz> UserQuizRepository { get; }
-
-
-
-    Task<int> SaveChangesAsync();
-
-    int SaveChanges();
+    IGenericRepository<Answer> AnswerRepository { get; }
 
     IGenericRepository<T> GenericRepository<T>() where T : class, IBaseEntity;
 
+    int SaveChanges();
+
+    Task<int> SaveChangesAsync(CancellationToken cancellationToken = default);
+
     IRepository<T> Repository<T>() where T : class;
 
-    Task BeginTransaction();
+    Task BeginTransactionAsync();
 
-    Task CommitTransaction();
+    Task CommitTransactionAsync();
 
-    Task RollbackTransaction();
+    Task RollbackTransactionAsync();
+
+
+
+
+
+
+
 
 
 }

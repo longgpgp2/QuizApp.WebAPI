@@ -12,7 +12,3 @@ public class AnswerService : BaseService<Answer>, IAnswerService
     {
     }
 }
-
-public interface IAnswerService: IBaseService<Answer>
-{
-}

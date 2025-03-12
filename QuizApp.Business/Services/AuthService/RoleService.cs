@@ -12,7 +12,3 @@ public class RoleService : BaseService<Role>, IRoleService
     {
     }
 }
-
-public interface IRoleService: IBaseService<Role>
-{
-}

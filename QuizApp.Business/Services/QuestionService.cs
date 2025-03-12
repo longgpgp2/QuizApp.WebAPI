@@ -54,7 +54,3 @@ public class QuestionService : BaseService<Question>, IQuestionService
         return question;
     }
 }
-
-public interface IQuestionService : IBaseService<Question>
-{
-}

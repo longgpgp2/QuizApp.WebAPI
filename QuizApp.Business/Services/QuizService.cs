@@ -8,11 +8,6 @@ using QuizApp.WebAPI.UnitOfWork;
 
 namespace QuizApp.WebAPI.Services;
 
-public interface IQuizService : IBaseService<Quiz>
-{
-
-}
-
 public class QuizService : BaseService<Quiz>, IQuizService
 {
     private readonly IUserService _userService;

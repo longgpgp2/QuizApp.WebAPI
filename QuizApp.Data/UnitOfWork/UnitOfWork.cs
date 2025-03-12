@@ -10,9 +10,14 @@ public class UnitOfWork : IUnitOfWork
 {
     private readonly QuizAppDbContext _context;
 
-    private bool _disposed = false;
+    public UnitOfWork(QuizAppDbContext context)
+    {
+        _context = context;
+    }
 
     public QuizAppDbContext Context => _context;
+
+    private bool _disposed = false;
 
     private IGenericRepository<Quiz>? _quizRepository;
     public IGenericRepository<Quiz> QuizRepository => _quizRepository ??= new GenericRepository<Quiz>(_context);
@@ -39,16 +44,7 @@ public class UnitOfWork : IUnitOfWork
     private IRepository<QuizQuestion>? _quizQuestionRepository;
     public IRepository<QuizQuestion> QuizQuestionRepository => _quizQuestionRepository ??= new Repository<QuizQuestion>(_context);
 
-    public UnitOfWork(QuizAppDbContext context)
-    {
-        _context = context;
-    }
-
-
-
-    IRepository<QuizQuestion> IUnitOfWork.QuizQuestionRepository => QuizQuestionRepository;
-
-    public async Task<int> SaveChangesAsync()
+    public async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
     {
         return await _context.SaveChangesAsync();
     }
@@ -86,17 +82,17 @@ public class UnitOfWork : IUnitOfWork
         return new Repository<T>(_context);
     }
 
-    public async Task BeginTransaction()
+    public async Task BeginTransactionAsync()
     {
         await _context.Database.BeginTransactionAsync();
     }
 
-    public async Task CommitTransaction()
+    public async Task CommitTransactionAsync()
     {
         await _context.Database.CommitTransactionAsync();
     }
 
-    public async Task RollbackTransaction()
+    public async Task RollbackTransactionAsync()
     {
         await _context.Database.RollbackTransactionAsync();
     }
