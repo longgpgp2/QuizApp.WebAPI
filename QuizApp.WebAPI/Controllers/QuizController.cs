@@ -27,31 +27,31 @@ public class QuizController : ControllerBase
     }
 
     [HttpGet]
-    public async Task<ActionResult<IEnumerable<Quiz>>> GetAll()
+    public async Task<IActionResult> GetAll()
     {
         return Ok(await _quizService.GetAllAsync());
     }
 
     [HttpGet("{id}")]
-    public async Task<ActionResult<Quiz>> GetById(Guid id)
+    public async Task<IActionResult> GetById(Guid id)
     {
         return Ok(await _quizService.GetByIdAsync(id));
     }
 
     [HttpPost]
-    public async Task<ActionResult<Quiz>> Create(Quiz quiz)
+    public async Task<IActionResult> Create(Quiz quiz)
     {
         return Ok(await _quizService.AddAsync(quiz));
     }
 
     [HttpPut]
-    public async Task<ActionResult<Quiz>> Update(Quiz quiz)
+    public async Task<IActionResult> Update(Quiz quiz)
     {
         return Ok(await _quizService.UpdateAsync(quiz));
     }
 
     [HttpDelete("{id}")]
-    public async Task<ActionResult<bool>> Delete(Guid id)
+    public async Task<IActionResult> Delete(Guid id)
     {
         return Ok(await _quizService.DeleteAsync(id));
     }

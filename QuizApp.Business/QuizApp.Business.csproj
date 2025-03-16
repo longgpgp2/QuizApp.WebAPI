@@ -12,4 +12,8 @@
     <ProjectReference Include="..\QuizApp.Models\QuizApp.Models.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="14.0.0" />
+  </ItemGroup>
+
 </Project>

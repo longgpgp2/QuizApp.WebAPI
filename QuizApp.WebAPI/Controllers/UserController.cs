@@ -23,31 +23,31 @@ public class UserController : ControllerBase
     }
 
     [HttpGet]
-    public async Task<ActionResult<IEnumerable<User>>> GetAll()
+    public async Task<IActionResult> GetAll()
     {
         return Ok(await _userService.GetAllAsync());
     }
 
     [HttpGet("{id}")]
-    public async Task<ActionResult<User>> GetById(Guid id)
+    public async Task<IActionResult> GetById(Guid id)
     {
         return Ok(await _userService.GetByIdAsync(id));
     }
 
     [HttpPost]
-    public async Task<ActionResult<User>> Create(User user)
+    public async Task<IActionResult> Create(User user)
     {
         return Ok(await _userService.AddAsync(user));
     }
 
     [HttpPut]
-    public async Task<ActionResult<User>> Update(User user)
+    public async Task<IActionResult> Update(User user)
     {
         return Ok(await _userService.UpdateAsync(user));
     }
 
     [HttpDelete("{id}")]
-    public async Task<ActionResult<bool>> Delete(Guid id)
+    public async Task<IActionResult> Delete(Guid id)
     {
         return Ok(await _userService.DeleteAsync(id));
     }

@@ -1,0 +1,6 @@
+**/bin/*
+**/obj/*
+**/node_modules/*
+**/.vscode/*
+**/.vs/*
+**/.DS_Store/*

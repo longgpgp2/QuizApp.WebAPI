@@ -25,31 +25,31 @@ public class AnswerController : ControllerBase
     }
 
     [HttpGet]
-    public async Task<ActionResult<IEnumerable<Answer>>> GetAll()
+    public async Task<IActionResult> GetAll()
     {
         return Ok(await _answerService.GetAllAsync());
     }
 
     [HttpGet("{id}")]
-    public async Task<ActionResult<Answer>> GetById(Guid id)
+    public async Task<IActionResult> GetById(Guid id)
     {
         return Ok(await _answerService.GetByIdAsync(id));
     }
 
     [HttpPost]
-    public async Task<ActionResult<Answer>> Create(Answer answer)
+    public async Task<IActionResult> Create(Answer answer)
     {
         return Ok(await _answerService.AddAsync(answer));
     }
 
     [HttpPut]
-    public async Task<ActionResult<Answer>> Update(Answer answer)
+    public async Task<IActionResult> Update(Answer answer)
     {
         return Ok(await _answerService.UpdateAsync(answer));
     }
 
     [HttpDelete("{id}")]
-    public async Task<ActionResult<bool>> Delete(Guid id)
+    public async Task<IActionResult> Delete(Guid id)
     {
         return Ok(await _answerService.DeleteAsync(id));
     }

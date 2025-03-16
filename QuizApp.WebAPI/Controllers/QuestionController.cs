@@ -1,5 +1,7 @@
+using AutoMapper;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using QuizApp.Business.ViewModels.Common;
 using QuizApp.WebAPI.Models;
 using QuizApp.WebAPI.Services;
 
@@ -10,10 +12,12 @@ namespace QuizApp.WebAPI.Controllers;
 public class QuestionController : ControllerBase
 {
     private readonly IQuestionService _questionService;
+    private readonly IMapper _mapper;
 
-    public QuestionController(IQuestionService questionService)
+    public QuestionController(IQuestionService questionService, IMapper mapper)
     {
         _questionService = questionService;
+        _mapper = mapper;
     }
 
 
@@ -25,31 +29,33 @@ public class QuestionController : ControllerBase
     }
 
     [HttpGet]
-    public async Task<ActionResult<IEnumerable<Question>>> GetAll()
+    public async Task<IActionResult> GetAll()
     {
-        return Ok(await _questionService.GetAllAsync());
+        var questions = await _questionService.GetAllAsync();
+        return Ok(questions.Select(q => _mapper.Map<QuestionViewModel>(q)));
     }
 
+
     [HttpGet("{id}")]
-    public async Task<ActionResult<Question>> GetById(Guid id)
+    public async Task<IActionResult> GetById(Guid id)
     {
         return Ok(await _questionService.GetByIdAsync(id));
     }
 
     [HttpPost]
-    public async Task<ActionResult<Question>> Create(Question question)
+    public async Task<IActionResult> Create(Question question)
     {
         return Ok(await _questionService.AddAsync(question));
     }
 
     [HttpPut]
-    public async Task<ActionResult<Question>> Update(Question question)
+    public async Task<IActionResult> Update(Question question)
     {
         return Ok(await _questionService.UpdateAsync(question));
     }
 
     [HttpDelete("{id}")]
-    public async Task<ActionResult<bool>> Delete(Guid id)
+    public async Task<IActionResult> Delete(Guid id)
     {
         return Ok(await _questionService.DeleteAsync(id));
     }

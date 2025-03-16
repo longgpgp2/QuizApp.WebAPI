@@ -4,6 +4,7 @@ using Microsoft.Extensions.Options;
 using Microsoft.OpenApi.Models;
 using QuizApp.Business.Services;
 using QuizApp.Business.Services.AuthService;
+using QuizApp.WebAPI.Configurations;
 using QuizApp.WebAPI.Data;
 using QuizApp.WebAPI.Models;
 using QuizApp.WebAPI.Repositories;
@@ -42,7 +43,7 @@ builder.Services.AddLogging();
 
 builder.Logging.AddConsole();
 builder.Logging.AddDebug();
-
+builder.Services.AddAutoMapper(typeof(MappingProfile));
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddIdentity<User, Role>()
