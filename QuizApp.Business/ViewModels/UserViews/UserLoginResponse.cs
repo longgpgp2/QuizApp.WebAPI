@@ -1,6 +1,6 @@
 using System;
 
-namespace QuizApp.Business.ViewModels.User;
+namespace QuizApp.Business.ViewModels.UserViews;
 
 public class UserLoginResponse
 {

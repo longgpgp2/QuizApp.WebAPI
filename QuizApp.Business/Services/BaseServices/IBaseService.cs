@@ -1,5 +1,6 @@
 using System;
 using System.Linq.Expressions;
+using QuizApp.Business.ViewModels.Common;
 using QuizApp.WebAPI.Models;
 
 namespace QuizApp.WebAPI.Services.BaseServices;
@@ -117,4 +118,9 @@ public interface IBaseService<T> where T : class, IBaseEntity
         Func<IQueryable<T>, IOrderedQueryable<T>>? orderBy = null,
         string includeProperties = "", int pageIndex = 1, int pageSize = 10);
         
+
+    // Add Mapping
+    BaseCommonViewModel<T> ToViewModel(T entity);
+
+    IEnumerable<BaseCommonViewModel<T>> ToViewModels(IEnumerable<T> entities);
 }

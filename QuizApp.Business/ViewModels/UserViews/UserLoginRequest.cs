@@ -1,7 +1,7 @@
 using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace QuizApp.Business.ViewModels.User;
+namespace QuizApp.Business.ViewModels.UserViews;
 
 public class UserLoginRequest
 {

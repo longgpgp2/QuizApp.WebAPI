@@ -1,4 +1,5 @@
 using System;
+using AutoMapper;
 using Microsoft.Extensions.Logging;
 using QuizApp.WebAPI.Models;
 using QuizApp.WebAPI.Services.BaseServices;
@@ -8,7 +9,7 @@ namespace QuizApp.WebAPI.Services;
 
 public class AnswerService : BaseService<Answer>, IAnswerService
 {
-    public AnswerService(IUnitOfWork unitOfWork, ILogger<AnswerService> logger) : base(unitOfWork, logger)
+    public AnswerService(IUnitOfWork unitOfWork, ILogger<AnswerService> logger, IMapper mapper) : base(unitOfWork, logger, mapper)
     {
     }
 }

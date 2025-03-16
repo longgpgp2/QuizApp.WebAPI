@@ -1,4 +1,5 @@
 using System;
+using AutoMapper;
 using Microsoft.Extensions.Logging;
 using QuizApp.Business.Services;
 using QuizApp.Business.ViewModels;
@@ -11,7 +12,7 @@ namespace QuizApp.WebAPI.Services;
 public class QuizService : BaseService<Quiz>, IQuizService
 {
     private readonly IUserService _userService;
-    public QuizService(IUnitOfWork unitOfWork, ILogger<QuizService> logger, IUserService userService) : base(unitOfWork, logger)
+    public QuizService(IUnitOfWork unitOfWork, ILogger<QuizService> logger, IUserService userService, IMapper mapper) : base(unitOfWork, logger, mapper)
     {
         _userService = userService;
     }

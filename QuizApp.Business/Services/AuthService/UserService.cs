@@ -1,4 +1,5 @@
 using System;
+using AutoMapper;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Logging;
 using QuizApp.Business.ViewModels;
@@ -12,7 +13,7 @@ public class UserService : BaseService<User>, IUserService
 {
     private readonly UserManager<User> _userManager;
     private readonly SignInManager<User> _signInManager;
-    public UserService(IUnitOfWork unitOfWork, ILogger<UserService> logger, UserManager<User> userManager, SignInManager<User> signInManager) : base(unitOfWork, logger)
+    public UserService(IUnitOfWork unitOfWork, ILogger<UserService> logger, UserManager<User> userManager, SignInManager<User> signInManager, IMapper mapper) : base(unitOfWork, logger, mapper)
     {
         _userManager = userManager;
         _signInManager = signInManager;

@@ -1,6 +1,8 @@
+using AutoMapper;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using QuizApp.Business.ViewModels.Common;
 using QuizApp.WebAPI.Data;
 using QuizApp.WebAPI.Models;
 using QuizApp.WebAPI.Services;
@@ -13,10 +15,12 @@ namespace QuizApp.WebAPI.Controllers;
 public class QuizController : ControllerBase
 {
     private readonly IQuizService _quizService;
+    private readonly IMapper _mapper;
 
-    public QuizController(IQuizService quizService)
+    public QuizController(IQuizService quizService, IMapper mapper)
     {
         _quizService = quizService;
+        _mapper = mapper;
     }
 
     [HttpGet]
@@ -29,7 +33,9 @@ public class QuizController : ControllerBase
     [HttpGet]
     public async Task<IActionResult> GetAll()
     {
-        return Ok(await _quizService.GetAllAsync());
+        var quizzes = await _quizService.GetAllAsync();
+        
+        return Ok(quizzes.Select(q => _mapper.Map<QuizViewModel>(q)));
     }
 
     [HttpGet("{id}")]

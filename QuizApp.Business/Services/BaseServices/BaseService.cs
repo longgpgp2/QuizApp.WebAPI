@@ -1,7 +1,9 @@
 using System;
 using System.Linq.Expressions;
+using AutoMapper;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
+using QuizApp.Business.ViewModels.Common;
 using QuizApp.WebAPI.Models;
 using QuizApp.WebAPI.UnitOfWork;
 
@@ -13,10 +15,13 @@ public class BaseService<T> : IBaseService<T> where T : class, IBaseEntity
 
     protected readonly ILogger<BaseService<T>> _logger;
 
-    public BaseService(IUnitOfWork unitOfWork, ILogger<BaseService<T>> logger)
+    protected readonly IMapper _mapper;
+
+    public BaseService(IUnitOfWork unitOfWork, ILogger<BaseService<T>> logger, IMapper mapper)
     {
         _unitOfWork = unitOfWork;
         _logger = logger;
+        _mapper = mapper;
     }
 
     public virtual int Add(T entity)
@@ -203,5 +208,15 @@ public class BaseService<T> : IBaseService<T> where T : class, IBaseEntity
         _logger.LogInformation("Paginated results of {0} are retrieved", typeof(T));
 
         return await PaginatedResult<T>.CreateAsync(query, pageIndex, pageSize);
+    }
+
+    public BaseCommonViewModel<T> ToViewModel(T entity)
+    {
+        throw new NotImplementedException();
+    }
+
+    public IEnumerable<BaseCommonViewModel<T>> ToViewModels(IEnumerable<T> entities)
+    {
+        return entities.Select(e=>_mapper.Map<BaseCommonViewModel<T>>(e));
     }
 }

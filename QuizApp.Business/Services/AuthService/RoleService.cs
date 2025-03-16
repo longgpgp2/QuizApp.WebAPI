@@ -1,4 +1,5 @@
 using System;
+using AutoMapper;
 using Microsoft.Extensions.Logging;
 using QuizApp.WebAPI.Models;
 using QuizApp.WebAPI.Services.BaseServices;
@@ -8,7 +9,7 @@ namespace QuizApp.Business.Services.AuthService;
 
 public class RoleService : BaseService<Role>, IRoleService
 {
-    public RoleService(IUnitOfWork unitOfWork, ILogger<RoleService> logger) : base(unitOfWork, logger)
+    public RoleService(IUnitOfWork unitOfWork, ILogger<RoleService> logger, IMapper mapper) : base(unitOfWork, logger, mapper)
     {
     }
 }

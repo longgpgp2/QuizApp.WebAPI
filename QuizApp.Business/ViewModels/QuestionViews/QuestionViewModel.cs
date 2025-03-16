@@ -1,8 +1,9 @@
 using System;
+using QuizApp.WebAPI.Models;
 
 namespace QuizApp.Business.ViewModels.Common;
 
-public class QuestionViewModel
+public class QuestionViewModel: IBaseCommonViewModel<Question>
 {
     public Guid Id { get; set; }
 

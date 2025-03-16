@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using QuizApp.Business.Services;
-using QuizApp.Business.ViewModels.User;
+using QuizApp.Business.ViewModels.UserViews;
 
 namespace QuizApp.WebAPI.Controllers;
 
