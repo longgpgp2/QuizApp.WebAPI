@@ -12,8 +12,6 @@ public class Role : IdentityRole<Guid>, IBaseEntity
 
     [Required]
     public bool IsActive { get; set; } = true;
-
-    public ICollection<User> Users { get; set; } = [];
     
     public bool IsDeleted { get; set; } = false;
 

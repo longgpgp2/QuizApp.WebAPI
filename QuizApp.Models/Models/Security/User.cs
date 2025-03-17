@@ -38,6 +38,7 @@ public class User : IdentityUser<Guid>, IBaseEntity
     public ICollection<Role> Roles { get; set; } = [];
 
     public ICollection<UserQuiz> UserQuizzes { get; set; } = [];
+    
     public bool IsDeleted { get; set; } = false;
 
 }

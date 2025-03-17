@@ -43,15 +43,6 @@ public class QuestionController : ControllerBase
         return Ok(_mapper.Map<QuestionViewModel>(await _questionService.GetByIdAsync(id)));
     }
 
-    //     POST /questions
-    // ▪ Description: Create a new question with answer.
-    // ▪ Action method: public async Task<IActionResult>
-    // CreateQuestionWithAnswer(QuestionCreateViewModel questionCreateViewModel)
-    // ▪ Request Body:
-    // - QuestionCreateViewModel: Content, QuestionType, IsActive,
-    // Answer(ICollection<AnswerCreateViewModel>)
-    // - AnswerCreateViewModel: Content, IsCorrect, IsActive
-    // ▪ Response: bool
     [HttpPost]
     public async Task<IActionResult> CreateQuestionWithAnswer([FromBody] QuestionCreateViewModel questionCreateViewModel)
     {

@@ -1,5 +1,6 @@
 using System;
 using System.ComponentModel.DataAnnotations;
+using QuizApp.Data.Models;
 
 namespace QuizApp.WebAPI.Models;
 
@@ -21,6 +22,7 @@ public class Quiz : BaseEntity
 
     public ICollection<UserQuiz> UserQuizzes { get; set; } = [];
 
-    public ICollection<Question> Questions { get; set; } = [];
+    public ICollection<QuizQuestion> QuizQuestions { get; set; } = [];
+
 
 }

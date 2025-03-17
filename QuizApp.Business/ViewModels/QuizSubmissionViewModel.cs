@@ -8,7 +8,5 @@ public class QuizSubmissionViewModel
 
     public List<UserAnswerSubmissionViewModel> UserAnswers { get; set; } = [];
 
-    // just in case
-
     public DateTime StartTime { get; set; }
 }

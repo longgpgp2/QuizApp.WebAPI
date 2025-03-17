@@ -6,6 +6,7 @@ using AutoMapper;
 using QuizApp.Business.ViewModels.AnswerViews;
 using QuizApp.Business.ViewModels.Common;
 using QuizApp.Business.ViewModels.QuestionViews;
+using QuizApp.Business.ViewModels.QuizViews;
 using QuizApp.WebAPI.Models;
 
 public class MappingProfile : Profile
@@ -21,6 +22,9 @@ public class MappingProfile : Profile
         CreateMap<AnswerCreateViewModel, Answer>();
         CreateMap<AnswerEditViewModel, Answer>();
 
+        CreateMap<Quiz, QuizViewModel>();
+        CreateMap<QuizViewModel, Quiz>();
+        CreateMap<QuizCreateViewModel, Quiz>();
 
     }
 }

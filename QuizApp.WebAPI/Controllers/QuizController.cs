@@ -2,7 +2,9 @@ using AutoMapper;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using QuizApp.Business.ViewModels;
 using QuizApp.Business.ViewModels.Common;
+using QuizApp.Business.ViewModels.QuizViews;
 using QuizApp.WebAPI.Data;
 using QuizApp.WebAPI.Models;
 using QuizApp.WebAPI.Services;
@@ -10,7 +12,7 @@ using QuizApp.WebAPI.UnitOfWork;
 
 namespace QuizApp.WebAPI.Controllers;
 
-[Route("api/[controller]")]
+[Route("api/[controller]zes")]
 [ApiController]
 public class QuizController : ControllerBase
 {
@@ -33,21 +35,19 @@ public class QuizController : ControllerBase
     [HttpGet]
     public async Task<IActionResult> GetAll()
     {
-        var quizzes = await _quizService.GetAllAsync();
-        
-        return Ok(quizzes.Select(q => _mapper.Map<QuizViewModel>(q)));
+        return Ok((await _quizService.GetAllAsync()).Select(q => _mapper.Map<QuizViewModel>(q)));
     }
 
     [HttpGet("{id}")]
     public async Task<IActionResult> GetById(Guid id)
     {
-        return Ok(await _quizService.GetByIdAsync(id));
+        return Ok(_mapper.Map<QuizViewModel>(await _quizService.GetByIdAsync(id)));
     }
 
     [HttpPost]
-    public async Task<IActionResult> Create(Quiz quiz)
+    public async Task<IActionResult> CreateQuizWithQuestions(QuizCreateViewModel quizCreateViewModel)
     {
-        return Ok(await _quizService.AddAsync(quiz));
+        return Ok(await _quizService.AddAsync(quizCreateViewModel));
     }
 
     [HttpPut]
@@ -56,9 +56,39 @@ public class QuizController : ControllerBase
         return Ok(await _quizService.UpdateAsync(quiz));
     }
 
+    [HttpPut("{id}")]
+    public async Task<IActionResult> UpdateQuizWithQuestions([FromRoute] Guid id, [FromBody] QuizEditViewModel questionEditViewModel)
+    {
+        return Ok(await _quizService.UpdateAsync(id, questionEditViewModel));
+    }
+
     [HttpDelete("{id}")]
     public async Task<IActionResult> Delete(Guid id)
     {
         return Ok(await _quizService.DeleteAsync(id));
+    }
+
+    [HttpDelete("{id}/questions/{questionId}")]
+    public async Task<IActionResult> DeleteQuestionFromQuiz([FromRoute] Guid id, [FromRoute] Guid questionId)
+    {
+        return Ok(await _quizService.DeleteQuestionFromQuizAsync(id, questionId));
+    }
+
+    [HttpPost("PrepareQuizForUser")]
+    public async Task<IActionResult> AddQuestionToQuiz(PrepareQuizViewModel prepareQuizViewModel)
+    {
+        return Ok(await _quizService.PrepareQuizForUserAsync(prepareQuizViewModel));
+    }
+
+    [HttpPost("takeQuiz")]
+    public async Task<IActionResult> TakeQuiz(TakeQuizViewModel takeQuizViewModel)
+    {
+        return Ok(await _quizService.TakeQuizAsync(takeQuizViewModel));
+    }
+
+    [HttpPost("submitQuiz")]
+    public async Task<IActionResult> SubmitQuiz(QuizSubmissionViewModel quizSubmissionViewModel)
+    {
+        return Ok(await _quizService.SubmitQuizAsync(quizSubmissionViewModel));
     }
 }

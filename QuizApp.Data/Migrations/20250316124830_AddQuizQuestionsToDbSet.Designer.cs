@@ -3,17 +3,20 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using QuizApp.WebAPI.Data;
 
 #nullable disable
 
-namespace QuizApp.WebAPI.Migrations
+namespace QuizApp.Data.Migrations
 {
     [DbContext(typeof(QuizAppDbContext))]
-    partial class QuizAppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250316124830_AddQuizQuestionsToDbSet")]
+    partial class AddQuizQuestionsToDbSet
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -43,7 +46,7 @@ namespace QuizApp.WebAPI.Migrations
 
                     b.HasIndex("RoleId");
 
-                    b.ToTable("RoleClaims", "Security");
+                    b.ToTable("AspNetRoleClaims", (string)null);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<System.Guid>", b =>
@@ -67,7 +70,7 @@ namespace QuizApp.WebAPI.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("UserClaims", "Security");
+                    b.ToTable("AspNetUserClaims", (string)null);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<System.Guid>", b =>
@@ -88,7 +91,7 @@ namespace QuizApp.WebAPI.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("UserLogins", "Security");
+                    b.ToTable("AspNetUserLogins", (string)null);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<System.Guid>", b =>
@@ -103,7 +106,7 @@ namespace QuizApp.WebAPI.Migrations
 
                     b.HasIndex("RoleId");
 
-                    b.ToTable("UserRoles", "Security");
+                    b.ToTable("AspNetUserRoles", (string)null);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<System.Guid>", b =>
@@ -122,23 +125,20 @@ namespace QuizApp.WebAPI.Migrations
 
                     b.HasKey("UserId", "LoginProvider", "Name");
 
-                    b.ToTable("UserTokens", "Security");
+                    b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("QuizApp.Data.Models.QuizQuestion", b =>
+            modelBuilder.Entity("QuestionQuiz", b =>
                 {
-                    b.Property<Guid>("QuizId")
+                    b.Property<Guid>("QuestionsId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<Guid>("QuestionId")
+                    b.Property<Guid>("QuizzesId")
                         .HasColumnType("uniqueidentifier");
 
-                    b.Property<int>("Order")
-                        .HasColumnType("int");
+                    b.HasKey("QuestionsId", "QuizzesId");
 
-                    b.HasKey("QuizId", "QuestionId");
-
-                    b.HasIndex("QuestionId");
+                    b.HasIndex("QuizzesId");
 
                     b.ToTable("QuizQuestions", (string)null);
                 });
@@ -170,7 +170,7 @@ namespace QuizApp.WebAPI.Migrations
 
                     b.HasIndex("QuestionId");
 
-                    b.ToTable("Answers", (string)null);
+                    b.ToTable("Answers");
 
                     b.HasData(
                         new
@@ -306,7 +306,7 @@ namespace QuizApp.WebAPI.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Questions", (string)null);
+                    b.ToTable("Questions");
 
                     b.HasData(
                         new
@@ -370,9 +370,6 @@ namespace QuizApp.WebAPI.Migrations
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("bit");
 
-                    b.Property<Guid?>("QuestionId")
-                        .HasColumnType("uniqueidentifier");
-
                     b.Property<string>("ThumbnailUrl")
                         .HasMaxLength(500)
                         .HasColumnType("nvarchar(500)");
@@ -384,9 +381,7 @@ namespace QuizApp.WebAPI.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("QuestionId");
-
-                    b.ToTable("Quizzes", (string)null);
+                    b.ToTable("Quizzes");
 
                     b.HasData(
                         new
@@ -470,9 +465,6 @@ namespace QuizApp.WebAPI.Migrations
                         .HasMaxLength(256)
                         .HasColumnType("nvarchar(256)");
 
-                    b.Property<Guid?>("UserId")
-                        .HasColumnType("uniqueidentifier");
-
                     b.HasKey("Id");
 
                     b.HasIndex("NormalizedName")
@@ -480,9 +472,7 @@ namespace QuizApp.WebAPI.Migrations
                         .HasDatabaseName("RoleNameIndex")
                         .HasFilter("[NormalizedName] IS NOT NULL");
 
-                    b.HasIndex("UserId");
-
-                    b.ToTable("Roles", "Security");
+                    b.ToTable("AspNetRoles", (string)null);
 
                     b.HasData(
                         new
@@ -622,7 +612,7 @@ namespace QuizApp.WebAPI.Migrations
                         .HasDatabaseName("UserNameIndex")
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
-                    b.ToTable("Users", "Security");
+                    b.ToTable("AspNetUsers", (string)null);
                 });
 
             modelBuilder.Entity("QuizApp.WebAPI.Models.UserAnswer", b =>
@@ -646,7 +636,7 @@ namespace QuizApp.WebAPI.Migrations
 
                     b.HasIndex("UserQuizId");
 
-                    b.ToTable("UserAnswers", (string)null);
+                    b.ToTable("UserAnswers");
                 });
 
             modelBuilder.Entity("QuizApp.WebAPI.Models.UserQuiz", b =>
@@ -677,7 +667,22 @@ namespace QuizApp.WebAPI.Migrations
 
                     b.HasIndex("UserId");
 
-                    b.ToTable("UserQuizzes", (string)null);
+                    b.ToTable("UserQuiz");
+                });
+
+            modelBuilder.Entity("RoleUser", b =>
+                {
+                    b.Property<Guid>("RolesId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<Guid>("UsersId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("RolesId", "UsersId");
+
+                    b.HasIndex("UsersId");
+
+                    b.ToTable("UserRoles", (string)null);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<System.Guid>", b =>
@@ -731,23 +736,19 @@ namespace QuizApp.WebAPI.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("QuizApp.Data.Models.QuizQuestion", b =>
+            modelBuilder.Entity("QuestionQuiz", b =>
                 {
-                    b.HasOne("QuizApp.WebAPI.Models.Question", "Question")
+                    b.HasOne("QuizApp.WebAPI.Models.Question", null)
                         .WithMany()
-                        .HasForeignKey("QuestionId")
+                        .HasForeignKey("QuestionsId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("QuizApp.WebAPI.Models.Quiz", "Quiz")
-                        .WithMany("QuizQuestions")
-                        .HasForeignKey("QuizId")
+                    b.HasOne("QuizApp.WebAPI.Models.Quiz", null)
+                        .WithMany()
+                        .HasForeignKey("QuizzesId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.Navigation("Question");
-
-                    b.Navigation("Quiz");
                 });
 
             modelBuilder.Entity("QuizApp.WebAPI.Models.Answer", b =>
@@ -759,20 +760,6 @@ namespace QuizApp.WebAPI.Migrations
                         .IsRequired();
 
                     b.Navigation("Question");
-                });
-
-            modelBuilder.Entity("QuizApp.WebAPI.Models.Quiz", b =>
-                {
-                    b.HasOne("QuizApp.WebAPI.Models.Question", null)
-                        .WithMany("Quizzes")
-                        .HasForeignKey("QuestionId");
-                });
-
-            modelBuilder.Entity("QuizApp.WebAPI.Models.Role", b =>
-                {
-                    b.HasOne("QuizApp.WebAPI.Models.User", null)
-                        .WithMany("Roles")
-                        .HasForeignKey("UserId");
                 });
 
             modelBuilder.Entity("QuizApp.WebAPI.Models.UserAnswer", b =>
@@ -799,24 +786,33 @@ namespace QuizApp.WebAPI.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("RoleUser", b =>
+                {
+                    b.HasOne("QuizApp.WebAPI.Models.Role", null)
+                        .WithMany()
+                        .HasForeignKey("RolesId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("QuizApp.WebAPI.Models.User", null)
+                        .WithMany()
+                        .HasForeignKey("UsersId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
             modelBuilder.Entity("QuizApp.WebAPI.Models.Question", b =>
                 {
                     b.Navigation("Answers");
-
-                    b.Navigation("Quizzes");
                 });
 
             modelBuilder.Entity("QuizApp.WebAPI.Models.Quiz", b =>
                 {
-                    b.Navigation("QuizQuestions");
-
                     b.Navigation("UserQuizzes");
                 });
 
             modelBuilder.Entity("QuizApp.WebAPI.Models.User", b =>
                 {
-                    b.Navigation("Roles");
-
                     b.Navigation("UserQuizzes");
                 });
 
