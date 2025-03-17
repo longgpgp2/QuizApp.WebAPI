@@ -3,7 +3,9 @@ using AutoMapper;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Logging;
 using QuizApp.Business.ViewModels;
+using QuizApp.Business.ViewModels.UserViews;
 using QuizApp.WebAPI.Models;
+using QuizApp.WebAPI.Services;
 using QuizApp.WebAPI.Services.BaseServices;
 using QuizApp.WebAPI.UnitOfWork;
 
@@ -19,9 +21,19 @@ public class UserService : BaseService<User>, IUserService
         _signInManager = signInManager;
     }
 
-    public async Task<IdentityResult> CreateUserAsync(User user, string password)
+    public async Task<IdentityResult> CreateUserAsync(UserCreateViewModel userCreateViewModel)
     {
-        return await _userManager.CreateAsync(user, password);
+        if (!userCreateViewModel.Password.Equals(userCreateViewModel.ConfirmPassword))
+        {
+            throw new InvalidOperationException("Password not matched!");
+        }
+        if (_unitOfWork.UserRepository.GetQuery().FirstOrDefault(u => u.Email == userCreateViewModel.Email) != null)
+        {
+            throw new InvalidOperationException("Email already taken");
+        }
+        _logger.LogInformation("Registering User");
+
+        return await _userManager.CreateAsync(_mapper.Map<User>(userCreateViewModel), userCreateViewModel.Password);
     }
 
     public async Task<SignInResult> SignInAsync(string userName, string password, bool isPersistent, bool lockoutOnFailure)
@@ -49,9 +61,13 @@ public class UserService : BaseService<User>, IUserService
         return await _userManager.FindByEmailAsync(email);
     }
 
-    public async Task<IdentityResult> ChangePasswordAsync(User user, string currentPassword, string newPassword)
+    public async Task<IdentityResult> ChangePasswordAsync(ChangePasswordViewModel changePasswordViewModel)
     {
-        return await _userManager.ChangePasswordAsync(user, currentPassword, newPassword);
+        if (!changePasswordViewModel.NewPassword.Equals(changePasswordViewModel.ConfirmPassword))
+            throw new InvalidOperationException("Password not match!");
+        var user = await FindByIdAsync(changePasswordViewModel.Id.ToString())
+            ?? throw new ResourceNotFoundException("User not found to change password");
+        return await _userManager.ChangePasswordAsync(user, changePasswordViewModel.Password, changePasswordViewModel.NewPassword);
     }
 
     public async Task<string> GeneratePasswordResetTokenAsync(User user)
@@ -91,20 +107,17 @@ public class UserService : BaseService<User>, IUserService
 
     public UserViewModel GetUserViewModel(User user)
     {
-        List<string> roles = user.Roles.Select(r => r.Name).ToList();
-        return new UserViewModel
-        {
-            Id = user.Id,
-            FirstName = user.FirstName,
-            LastName = user.LastName,
-            DisplayName = user.DisplayName,
-            Email = user.Email,
-            UserName = user.UserName,
-            PhoneNumber = user.PhoneNumber,
-            DateOfBirth = user.DateOfBirth,
-            Avatar = user.Avatar,
-            IsActive = user.IsActive,
-            Role = roles
-        };
+        return _mapper.Map<UserViewModel>(user);
+    }
+
+    public async Task<bool> UpdateAsync(Guid id, UserEditViewModel userEditViewModel)
+    {
+        var user = await FindByIdAsync(id.ToString()) ?? throw new ResourceNotFoundException("User not found to update!");
+        user.FirstName = userEditViewModel.FirstName ?? user.FirstName;
+        user.LastName = userEditViewModel.LastName ?? user.LastName;
+        user.PhoneNumber = userEditViewModel.PhoneNumber ?? user.PhoneNumber;
+        user.DateOfBirth = userEditViewModel.DateOfBirth ?? user.DateOfBirth;
+        user.IsActive = userEditViewModel.IsActive ?? user.IsActive;
+        return await UpdateAsync(user);
     }
 }

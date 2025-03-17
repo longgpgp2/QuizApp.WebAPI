@@ -17,12 +17,6 @@ public class UserViewModel
     public required string UserName { get; set; }
 
     public required string PhoneNumber { get; set; }
-
-    public DateTime DateOfBirth { get; set; }
-
-    public string? Avatar { get; set; }
-
+    
     public bool IsActive { get; set; }
-
-    public ICollection<string> Role { get; set; } = [];
 }

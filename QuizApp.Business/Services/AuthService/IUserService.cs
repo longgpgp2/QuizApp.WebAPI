@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Identity;
 using QuizApp.Business.ViewModels;
+using QuizApp.Business.ViewModels.UserViews;
 using QuizApp.WebAPI.Models;
 using QuizApp.WebAPI.Services.BaseServices;
 
@@ -8,8 +9,8 @@ namespace QuizApp.Business.Services;
 public interface IUserService: IBaseService<User>
 {
     Task<IdentityResult> AddToRoleAsync(User user, string role);
-    Task<IdentityResult> ChangePasswordAsync(User user, string currentPassword, string newPassword);
-    Task<IdentityResult> CreateUserAsync(User user, string password);
+    Task<IdentityResult> ChangePasswordAsync(ChangePasswordViewModel changePasswordViewModel);
+    Task<IdentityResult> CreateUserAsync(UserCreateViewModel userCreateViewModel);
     Task<User> FindByEmailAsync(string email);
     Task<User> FindByIdAsync(string userId);
     Task<User> FindByNameAsync(string userName);
@@ -22,4 +23,5 @@ public interface IUserService: IBaseService<User>
     Task SignOutAsync();
     Task<User?> GetCurrentLoggedInUserAsync();
     UserViewModel GetUserViewModel(User user);
+    Task<bool> UpdateAsync(Guid id, UserEditViewModel userEditViewModel);
 }
