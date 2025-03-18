@@ -34,7 +34,8 @@ public class UserController : ControllerBase
         return Ok((await _userService.GetAllAsync()).Select(u => _mapper.Map<UserViewModel>(u)));
     }
 
-    [HttpGet("{id}")]
+    [HttpGet]
+    [Route("{id}")]
     public async Task<IActionResult> GetById(Guid id)
     {
         return Ok(_mapper.Map<User>(await _userService.GetByIdAsync(id)));
@@ -52,19 +53,22 @@ public class UserController : ControllerBase
         return Ok(await _userService.UpdateAsync(user));
     }
 
-    [HttpPut("{id}")]
+    [HttpPut]
+    [Route("{id}")]
     public async Task<IActionResult> UpdateUser([FromRoute] Guid id, [FromBody] UserEditViewModel userEditViewModel)
     {
         return Ok(await _userService.UpdateAsync(id, userEditViewModel));
     }
 
-    [HttpDelete("{id}")]
+    [HttpDelete]
+    [Route("{id}")]
     public async Task<IActionResult> Delete(Guid id)
     {
         return Ok(await _userService.DeleteAsync(id));
     }
 
-    [HttpPost("changePassword")]
+    [HttpPost]
+    [Route("changePassword")]
     public async Task<IActionResult> ChangePassword(ChangePasswordViewModel changePasswordViewModel)
     {
         return Ok(await _userService.ChangePasswordAsync(changePasswordViewModel));

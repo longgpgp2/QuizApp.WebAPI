@@ -38,7 +38,8 @@ public class QuizController : ControllerBase
         return Ok((await _quizService.GetAllAsync()).Select(q => _mapper.Map<QuizViewModel>(q)));
     }
 
-    [HttpGet("{id}")]
+    [HttpGet]
+    [Route("{id}")]
     public async Task<IActionResult> GetById(Guid id)
     {
         return Ok(_mapper.Map<QuizViewModel>(await _quizService.GetByIdAsync(id)));
@@ -56,37 +57,43 @@ public class QuizController : ControllerBase
         return Ok(await _quizService.UpdateAsync(quiz));
     }
 
-    [HttpPut("{id}")]
+    [HttpPut]
+    [Route("{id}")]
     public async Task<IActionResult> UpdateQuizWithQuestions([FromRoute] Guid id, [FromBody] QuizEditViewModel questionEditViewModel)
     {
         return Ok(await _quizService.UpdateAsync(id, questionEditViewModel));
     }
 
-    [HttpDelete("{id}")]
+    [HttpDelete]
+    [Route("{id}")]
     public async Task<IActionResult> Delete(Guid id)
     {
         return Ok(await _quizService.DeleteAsync(id));
     }
 
-    [HttpDelete("{id}/questions/{questionId}")]
+    [HttpDelete]
+    [Route("{id}/questions/{questionId}")]
     public async Task<IActionResult> DeleteQuestionFromQuiz([FromRoute] Guid id, [FromRoute] Guid questionId)
     {
         return Ok(await _quizService.DeleteQuestionFromQuizAsync(id, questionId));
     }
 
-    [HttpPost("PrepareQuizForUser")]
+    [HttpPost]
+    [Route("PrepareQuizForUser")]
     public async Task<IActionResult> AddQuestionToQuiz(PrepareQuizViewModel prepareQuizViewModel)
     {
         return Ok(await _quizService.PrepareQuizForUserAsync(prepareQuizViewModel));
     }
 
-    [HttpPost("takeQuiz")]
+    [HttpPost]
+    [Route("takeQuiz")]
     public async Task<IActionResult> TakeQuiz(TakeQuizViewModel takeQuizViewModel)
     {
         return Ok(await _quizService.TakeQuizAsync(takeQuizViewModel));
     }
 
-    [HttpPost("submitQuiz")]
+    [HttpPost]
+    [Route("submitQuiz")]
     public async Task<IActionResult> SubmitQuiz(QuizSubmissionViewModel quizSubmissionViewModel)
     {
         return Ok(await _quizService.SubmitQuizAsync(quizSubmissionViewModel));

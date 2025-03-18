@@ -8,6 +8,7 @@ using QuizApp.Business.ViewModels.AnswerViews;
 using QuizApp.Business.ViewModels.Common;
 using QuizApp.Business.ViewModels.QuestionViews;
 using QuizApp.Business.ViewModels.QuizViews;
+using QuizApp.Business.ViewModels.RoleViews;
 using QuizApp.Business.ViewModels.UserViews;
 using QuizApp.WebAPI.Models;
 
@@ -34,6 +35,9 @@ public class MappingProfile : Profile
             .ForMember(u => u.DisplayName,
                        opt => opt.MapFrom(src => src.FirstName + " " + src.LastName));
 
+        CreateMap<Role, RoleViewModel>();
+        CreateMap<RoleCreateViewModel, Role>();
+        CreateMap<RoleEditViewModel, Role>();
 
 
 

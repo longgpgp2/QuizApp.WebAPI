@@ -16,7 +16,8 @@ public class AuthController : ControllerBase
         _userService = userService;
     }
 
-    [HttpPost("login")]
+    [HttpPost]
+    [Route("login")]
     public async Task<IActionResult> Login([FromBody] UserLoginRequest request)
     {
         if (!ModelState.IsValid)
@@ -29,7 +30,8 @@ public class AuthController : ControllerBase
         return Ok(result);
     }
 
-    [HttpPost("logout")]
+    [HttpPost]
+    [Route("logout")]
     public async Task<IActionResult> Logout()
     {
         if (!ModelState.IsValid)

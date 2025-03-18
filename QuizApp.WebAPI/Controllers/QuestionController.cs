@@ -37,7 +37,8 @@ public class QuestionController : ControllerBase
     }
 
 
-    [HttpGet("{id}")]
+    [HttpGet]
+    [Route("{id}")]
     public async Task<IActionResult> GetById(Guid id)
     {
         return Ok(_mapper.Map<QuestionViewModel>(await _questionService.GetByIdAsync(id)));
@@ -57,13 +58,15 @@ public class QuestionController : ControllerBase
         return Ok(await _questionService.UpdateAsync(question));
     }
 
-    [HttpPut("{id}")]
+    [HttpPut]
+    [Route("{id}")]
     public async Task<IActionResult> UpdateQuestionWithAnswer([FromRoute] Guid id, [FromBody] QuestionEditViewModel questionEditViewModel)
     {
         return Ok(await _questionService.UpdateAsync(id, questionEditViewModel));
     }
 
-    [HttpDelete("{id}")]
+    [HttpDelete]
+    [Route("{id}")]
     public async Task<IActionResult> Delete(Guid id)
     {
         return Ok(await _questionService.DeleteAsync(id));
