@@ -9,6 +9,7 @@ using QuizApp.Business.Services;
 using QuizApp.Business.Services.AuthService;
 using QuizApp.WebAPI.Configurations;
 using QuizApp.WebAPI.Data;
+using QuizApp.WebAPI.Middleware;
 using QuizApp.WebAPI.Models;
 using QuizApp.WebAPI.Repositories;
 using QuizApp.WebAPI.Services;
@@ -106,7 +107,7 @@ app.UseAuthentication();
 app.UseAuthorization();
 app.UseHttpsRedirection();
 app.UseCors("CorsPolicy");
-
+app.UseCustomExceptionHandler();
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller}/{action=Index}/{id?}");
