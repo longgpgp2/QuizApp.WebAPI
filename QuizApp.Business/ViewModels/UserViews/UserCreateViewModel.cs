@@ -18,8 +18,8 @@ public class UserCreateViewModel
     public string Email { get; set; } = string.Empty;
 
     [Required(ErrorMessage = "Username is required")]
-    [RegularExpression(@"^[a-zA-Z0-9_]+$", ErrorMessage = "Username can only contain letters, numbers, and underscores")]
-    [MinLength(4, ErrorMessage = "Username must be at least 4 characters long")]
+    [RegularExpression(@"^(?:[a-zA-Z0-9_]+|[\w-]+@([\w-]+\.)+[\w-]{2,4})$",
+        ErrorMessage = "Invalid Username or Email format")]
     public string UserName { get; set; } = string.Empty;
 
     [Required(ErrorMessage = "Phone number is required")]

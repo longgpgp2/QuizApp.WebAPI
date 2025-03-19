@@ -11,7 +11,8 @@ using QuizApp.WebAPI.Services;
 
 namespace QuizApp.WebAPI.Controllers;
 
-[Route("api/[controller]s")]
+[ApiVersion("1.0")]
+[Route("api/v{version:apiVersion}/questions")]
 [ApiController]
 [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
 

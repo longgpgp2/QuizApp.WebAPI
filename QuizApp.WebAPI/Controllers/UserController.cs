@@ -10,7 +10,8 @@ using QuizApp.WebAPI.Models;
 
 namespace QuizApp.WebAPI.Controllers;
 
-[Route("api/[controller]s")]
+[ApiVersion("1.0")]
+[Route("api/v{version:apiVersion}/users")]
 [ApiController]
 [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
 public class UserController : ControllerBase

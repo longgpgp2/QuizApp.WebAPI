@@ -7,7 +7,8 @@ using QuizApp.Business.ViewModels.UserViews;
 
 namespace QuizApp.WebAPI.Controllers;
 
-[Route("api/[controller]")]
+[ApiVersion("1.0")]
+[Route("api/v{version:apiVersion}/auth")]
 [ApiController]
 public class AuthController : ControllerBase
 {

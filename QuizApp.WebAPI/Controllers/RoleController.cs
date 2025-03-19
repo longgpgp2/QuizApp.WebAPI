@@ -9,7 +9,8 @@ using QuizApp.WebAPI.Models;
 
 namespace QuizApp.WebAPI.Controllers;
 
-[Route("api/[controller]s")]
+[ApiVersion("1.0")]
+[Route("api/v{version:apiVersion}/roles")]
 [ApiController]
 [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
 public class RoleController : ControllerBase

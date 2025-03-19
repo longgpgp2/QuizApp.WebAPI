@@ -5,7 +5,8 @@ namespace QuizApp.Business.ViewModels.AuthViews;
 public class LoginViewModel
 {
     [Required(ErrorMessage = "Username is required")]
-    [RegularExpression(@"^[a-zA-Z0-9_]+$", ErrorMessage = "Username can only contain letters, numbers, and underscores")]
+    [RegularExpression(@"^(?:[a-zA-Z0-9_]+|[\w-]+@([\w-]+\.)+[\w-]{2,4})$", 
+        ErrorMessage = "Invalid Username format")]
     public string UserName { get; set; } = string.Empty;
 
     [Required(ErrorMessage = "Password is required")]

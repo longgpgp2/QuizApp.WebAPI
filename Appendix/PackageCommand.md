@@ -22,8 +22,8 @@ dotnet add QuizApp.WebAPI package Microsoft.AspNetCore.Identity.EntityFrameworkC
 dotnet add QuizApp.WebAPI package Microsoft.AspNetCore.Authentication.JwtBearer
 dotnet add QuizApp.WebAPI package Microsoft.AspNetCore.Identity.UI
 dotnet add QuizApp.WebAPI package Microsoft.AspNetCore.API.NewtonsoftJson
-dotnet add QuizApp.WebAPI package Microsoft.AspNetCore.API.Versioning
-dotnet add QuizApp.WebAPI package Microsoft.AspNetCore.API.Versioning.ApiExplorer
+dotnet add QuizApp.WebAPI package Microsoft.AspNetCore.Mvc.Versioning
+dotnet add QuizApp.WebAPI package Microsoft.AspNetCore.Mvc.Versioning.ApiExplorer
 dotnet add QuizApp.WebAPI package Swashbuckle.AspNetCore
 dotnet add QuizApp.WebAPI package Swashbuckle.AspNetCore.Swagger
 dotnet add QuizApp.WebAPI package Swashbuckle.AspNetCore.SwaggerGen
