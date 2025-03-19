@@ -1,0 +1,770 @@
+2025-03-19 17:48:16.739 +07:00 [INF] User profile is available. Using 'C:\Users\longn\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-03-19 17:48:16.896 +07:00 [INF] Now listening on: http://localhost:5155
+2025-03-19 17:48:16.900 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-03-19 17:48:16.902 +07:00 [INF] Hosting environment: Development
+2025-03-19 17:48:16.904 +07:00 [INF] Content root path: D:\FSA\QuizApp.WebAPI\QuizApp.WebAPI
+2025-03-19 17:48:34.941 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/ - null null
+2025-03-19 17:48:34.996 +07:00 [WRN] Failed to determine the https port for redirect.
+2025-03-19 17:48:35.000 +07:00 [INF] HTTP GET / responded 404 in 15.6807 ms
+2025-03-19 17:48:35.020 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/ - 404 0 null 81.0572ms
+2025-03-19 17:48:35.029 +07:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5155/, Response status code: 404
+2025-03-19 17:48:38.163 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/swagger/index.html - null null
+2025-03-19 17:48:38.242 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/swagger/index.html - 200 null text/html;charset=utf-8 79.5506ms
+2025-03-19 17:48:38.330 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/_framework/aspnetcore-browser-refresh.js - null null
+2025-03-19 17:48:38.330 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/swagger/index.js - null null
+2025-03-19 17:48:38.339 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/_framework/aspnetcore-browser-refresh.js - 200 13748 application/javascript; charset=utf-8 8.5197ms
+2025-03-19 17:48:38.341 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/swagger/index.js - 200 null application/javascript;charset=utf-8 10.5857ms
+2025-03-19 17:48:38.951 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/swagger/v1/swagger.json - null null
+2025-03-19 17:48:39.081 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 129.7866ms
+2025-03-19 17:49:01.893 +07:00 [INF] Request starting HTTP/1.1 POST http://localhost:5155/api/Auth/login - application/json 61
+2025-03-19 17:49:01.902 +07:00 [INF] CORS policy execution failed.
+2025-03-19 17:49:01.904 +07:00 [INF] Request origin http://localhost:5155 does not have permission to access the resource.
+2025-03-19 17:49:01.907 +07:00 [INF] Executing endpoint 'QuizApp.WebAPI.Controllers.AuthController.Login (QuizApp.WebAPI)'
+2025-03-19 17:49:01.936 +07:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(QuizApp.Business.ViewModels.AuthViews.LoginViewModel) on controller QuizApp.WebAPI.Controllers.AuthController (QuizApp.WebAPI).
+2025-03-19 17:49:04.170 +07:00 [INF] Executed DbCommand (141ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[AccessFailedCount], [u].[Avatar], [u].[ConcurrencyStamp], [u].[DateOfBirth], [u].[DisplayName], [u].[Email], [u].[EmailConfirmed], [u].[FirstName], [u].[IsActive], [u].[IsDeleted], [u].[LastName], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [Security].[Users] AS [u]
+WHERE [u].[IsDeleted] = CAST(0 AS bit) AND [u].[NormalizedUserName] = @__normalizedUserName_0
+2025-03-19 17:49:04.446 +07:00 [INF] Executed DbCommand (11ms) [Parameters=[@__userId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT [r0].[Name]
+FROM [Security].[UserRoles] AS [u]
+INNER JOIN (
+    SELECT [r].[Id], [r].[Name]
+    FROM [Security].[Roles] AS [r]
+    WHERE [r].[IsDeleted] = CAST(0 AS bit)
+) AS [r0] ON [u].[RoleId] = [r0].[Id]
+WHERE [u].[UserId] = @__userId_0
+2025-03-19 17:49:05.045 +07:00 [INF] Executing OkObjectResult, writing value of type 'QuizApp.Business.ViewModels.AuthViews.LoginResponseViewModel'.
+2025-03-19 17:49:05.059 +07:00 [INF] Executed action QuizApp.WebAPI.Controllers.AuthController.Login (QuizApp.WebAPI) in 3116.4523ms
+2025-03-19 17:49:05.062 +07:00 [INF] Executed endpoint 'QuizApp.WebAPI.Controllers.AuthController.Login (QuizApp.WebAPI)'
+2025-03-19 17:49:05.064 +07:00 [INF] HTTP POST /api/Auth/login responded 200 in 3165.8652 ms
+2025-03-19 17:49:05.075 +07:00 [INF] Request finished HTTP/1.1 POST http://localhost:5155/api/Auth/login - 200 null application/json; charset=utf-8 3182.8192ms
+2025-03-19 17:49:12.549 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/api/Questions - null null
+2025-03-19 17:49:12.560 +07:00 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2025-03-19 17:49:12.563 +07:00 [INF] AuthenticationScheme: Identity.Application was challenged.
+2025-03-19 17:49:12.564 +07:00 [INF] HTTP GET /api/Questions responded 302 in 11.5577 ms
+2025-03-19 17:49:12.567 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/api/Questions - 302 0 null 18.0045ms
+2025-03-19 17:49:12.578 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/Account/Login?ReturnUrl=%2Fapi%2FQuestions - null null
+2025-03-19 17:49:12.581 +07:00 [INF] HTTP GET /Account/Login responded 404 in 0.3756 ms
+2025-03-19 17:49:12.584 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/Account/Login?ReturnUrl=%2Fapi%2FQuestions - 404 0 null 6.0643ms
+2025-03-19 17:49:12.588 +07:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5155/Account/Login, Response status code: 404
+2025-03-19 17:51:09.889 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/swagger/index.html - null null
+2025-03-19 17:51:09.893 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/swagger/index.html - 200 null text/html;charset=utf-8 3.5352ms
+2025-03-19 17:51:09.951 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/swagger/index.js - null null
+2025-03-19 17:51:09.954 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/swagger/index.js - 200 null application/javascript;charset=utf-8 2.7609ms
+2025-03-19 17:51:09.965 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/_framework/aspnetcore-browser-refresh.js - null null
+2025-03-19 17:51:09.968 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/_framework/aspnetcore-browser-refresh.js - 200 13748 application/javascript; charset=utf-8 2.4354ms
+2025-03-19 17:51:10.260 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/swagger/v1/swagger.json - null null
+2025-03-19 17:51:10.275 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 15.3649ms
+2025-03-19 17:51:18.723 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/swagger/index.html - null null
+2025-03-19 17:51:18.727 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/swagger/index.html - 200 null text/html;charset=utf-8 4.3797ms
+2025-03-19 17:51:18.769 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/swagger/index.js - null null
+2025-03-19 17:51:18.770 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/_framework/aspnetcore-browser-refresh.js - null null
+2025-03-19 17:51:18.772 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/swagger/index.js - 200 null application/javascript;charset=utf-8 3.4746ms
+2025-03-19 17:51:18.775 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/_framework/aspnetcore-browser-refresh.js - 200 13748 application/javascript; charset=utf-8 4.369ms
+2025-03-19 17:51:18.825 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/swagger/v1/swagger.json - null null
+2025-03-19 17:51:18.838 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 13.0528ms
+2025-03-19 17:51:23.570 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/swagger/index.html - null null
+2025-03-19 17:51:23.574 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/swagger/index.html - 200 null text/html;charset=utf-8 4.5554ms
+2025-03-19 17:51:23.601 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/swagger/index.js - null null
+2025-03-19 17:51:23.601 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/_framework/aspnetcore-browser-refresh.js - null null
+2025-03-19 17:51:23.604 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/swagger/index.js - 200 null application/javascript;charset=utf-8 2.8165ms
+2025-03-19 17:51:23.607 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/_framework/aspnetcore-browser-refresh.js - 200 13748 application/javascript; charset=utf-8 5.3266ms
+2025-03-19 17:51:23.654 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/swagger/v1/swagger.json - null null
+2025-03-19 17:51:23.665 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 11.4746ms
+2025-03-19 17:51:47.266 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/api/Questions/index - null null
+2025-03-19 17:51:47.278 +07:00 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2025-03-19 17:51:47.282 +07:00 [INF] AuthenticationScheme: Identity.Application was challenged.
+2025-03-19 17:51:47.283 +07:00 [INF] HTTP GET /api/Questions/index responded 302 in 12.5564 ms
+2025-03-19 17:51:47.285 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/api/Questions/index - 302 0 null 19.1659ms
+2025-03-19 17:51:47.290 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/Account/Login?ReturnUrl=%2Fapi%2FQuestions%2Findex - null null
+2025-03-19 17:51:47.293 +07:00 [INF] HTTP GET /Account/Login responded 404 in 0.8621 ms
+2025-03-19 17:51:47.295 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/Account/Login?ReturnUrl=%2Fapi%2FQuestions%2Findex - 404 0 null 5.198ms
+2025-03-19 17:51:47.298 +07:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5155/Account/Login, Response status code: 404
+2025-03-19 17:52:25.603 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/swagger/index.html - null null
+2025-03-19 17:52:25.607 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/swagger/index.html - 200 null text/html;charset=utf-8 4.4212ms
+2025-03-19 17:52:25.641 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/swagger/index.js - null null
+2025-03-19 17:52:25.641 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/_framework/aspnetcore-browser-refresh.js - null null
+2025-03-19 17:52:25.646 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/swagger/index.js - 200 null application/javascript;charset=utf-8 4.9098ms
+2025-03-19 17:52:25.649 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/_framework/aspnetcore-browser-refresh.js - 200 13748 application/javascript; charset=utf-8 7.546ms
+2025-03-19 17:52:25.796 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/swagger/v1/swagger.json - null null
+2025-03-19 17:52:25.811 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 15.146ms
+2025-03-19 17:52:35.481 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/swagger/index.html - null null
+2025-03-19 17:52:35.484 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/swagger/index.html - 200 null text/html;charset=utf-8 2.6752ms
+2025-03-19 17:52:35.515 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/_framework/aspnetcore-browser-refresh.js - null null
+2025-03-19 17:52:35.515 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/swagger/index.js - null null
+2025-03-19 17:52:35.519 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/_framework/aspnetcore-browser-refresh.js - 200 13748 application/javascript; charset=utf-8 4.5248ms
+2025-03-19 17:52:35.524 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/swagger/index.js - 200 null application/javascript;charset=utf-8 8.5412ms
+2025-03-19 17:52:35.584 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/swagger/v1/swagger.json - null null
+2025-03-19 17:52:35.593 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 8.9306ms
+2025-03-19 17:52:42.657 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/swagger/v1/swagger.json - null null
+2025-03-19 17:52:42.666 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 8.3185ms
+2025-03-19 17:52:42.865 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/favicon.ico - null null
+2025-03-19 17:52:42.868 +07:00 [INF] HTTP GET /favicon.ico responded 404 in 0.0994 ms
+2025-03-19 17:52:42.870 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/favicon.ico - 404 0 null 4.5771ms
+2025-03-19 17:52:42.872 +07:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5155/favicon.ico, Response status code: 404
+2025-03-19 17:52:47.089 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/ - null null
+2025-03-19 17:52:47.092 +07:00 [INF] HTTP GET / responded 404 in 0.1074 ms
+2025-03-19 17:52:47.095 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/ - 404 0 null 5.9845ms
+2025-03-19 17:52:47.098 +07:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5155/, Response status code: 404
+2025-03-19 17:52:49.994 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/swagger/index.html - null null
+2025-03-19 17:52:49.998 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/swagger/index.html - 200 null text/html;charset=utf-8 3.481ms
+2025-03-19 17:52:50.050 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/_framework/aspnetcore-browser-refresh.js - null null
+2025-03-19 17:52:50.052 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/swagger/index.js - null null
+2025-03-19 17:52:50.053 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/_framework/aspnetcore-browser-refresh.js - 200 13748 application/javascript; charset=utf-8 2.6395ms
+2025-03-19 17:52:50.055 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/swagger/index.js - 200 null application/javascript;charset=utf-8 3.0428ms
+2025-03-19 17:52:50.297 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/swagger/v1/swagger.json - null null
+2025-03-19 17:52:50.305 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 7.5154ms
+2025-03-19 17:53:06.564 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/swagger - null null
+2025-03-19 17:53:06.567 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/swagger - 301 0 null 3.0288ms
+2025-03-19 17:53:06.570 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/swagger/index.html - null null
+2025-03-19 17:53:06.572 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/swagger/index.html - 200 null text/html;charset=utf-8 1.9963ms
+2025-03-19 17:53:06.619 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/swagger/index.js - null null
+2025-03-19 17:53:06.621 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/_framework/aspnetcore-browser-refresh.js - null null
+2025-03-19 17:53:06.623 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/swagger/index.js - 200 null application/javascript;charset=utf-8 3.9681ms
+2025-03-19 17:53:06.626 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/_framework/aspnetcore-browser-refresh.js - 200 13748 application/javascript; charset=utf-8 4.4355ms
+2025-03-19 17:53:06.721 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/swagger/v1/swagger.json - null null
+2025-03-19 17:53:06.731 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 9.7459ms
+2025-03-19 17:56:37.935 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/swagger/index.html - null null
+2025-03-19 17:56:37.993 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/swagger/index.html - 200 null text/html;charset=utf-8 59.5829ms
+2025-03-19 17:56:38.000 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/swagger/index.html - null null
+2025-03-19 17:56:38.005 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/swagger/index.html - 200 null text/html;charset=utf-8 4.4693ms
+2025-03-19 17:56:38.332 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/swagger/index.js - null null
+2025-03-19 17:56:38.334 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/_framework/aspnetcore-browser-refresh.js - null null
+2025-03-19 17:56:38.335 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/swagger/index.js - 200 null application/javascript;charset=utf-8 3.7131ms
+2025-03-19 17:56:38.340 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/_framework/aspnetcore-browser-refresh.js - 200 13748 application/javascript; charset=utf-8 5.5919ms
+2025-03-19 17:56:38.342 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/swagger/index.js - null null
+2025-03-19 17:56:38.347 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/_framework/aspnetcore-browser-refresh.js - null null
+2025-03-19 17:56:38.350 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/swagger/index.js - 200 null application/javascript;charset=utf-8 7.48ms
+2025-03-19 17:56:38.352 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/_framework/aspnetcore-browser-refresh.js - 200 13748 application/javascript; charset=utf-8 5.2648ms
+2025-03-19 17:56:38.792 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/swagger/v1/swagger.json - null null
+2025-03-19 17:56:38.820 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 27.564ms
+2025-03-19 17:56:38.954 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/swagger/v1/swagger.json - null null
+2025-03-19 17:56:39.021 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 67.0499ms
+2025-03-19 17:56:41.166 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/swagger/index.html - null null
+2025-03-19 17:56:41.170 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/swagger/index.html - 200 null text/html;charset=utf-8 3.3918ms
+2025-03-19 17:56:41.173 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/swagger/index.html - null null
+2025-03-19 17:56:41.177 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/swagger/index.html - 200 null text/html;charset=utf-8 3.8414ms
+2025-03-19 17:56:41.197 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/swagger/index.html - null null
+2025-03-19 17:56:41.200 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/swagger/index.html - 200 null text/html;charset=utf-8 2.9652ms
+2025-03-19 17:56:41.203 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/swagger/index.html - null null
+2025-03-19 17:56:41.207 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/swagger/index.html - 200 null text/html;charset=utf-8 4.2219ms
+2025-03-19 17:56:41.247 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/swagger/index.js - null null
+2025-03-19 17:56:41.249 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/_framework/aspnetcore-browser-refresh.js - null null
+2025-03-19 17:56:41.251 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/swagger/index.js - 200 null application/javascript;charset=utf-8 3.7394ms
+2025-03-19 17:56:41.255 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/_framework/aspnetcore-browser-refresh.js - 200 13748 application/javascript; charset=utf-8 6.7154ms
+2025-03-19 17:56:41.259 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/swagger/index.js - null null
+2025-03-19 17:56:41.265 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/_framework/aspnetcore-browser-refresh.js - null null
+2025-03-19 17:56:41.269 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/swagger/index.js - 200 null application/javascript;charset=utf-8 10.0096ms
+2025-03-19 17:56:41.271 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/_framework/aspnetcore-browser-refresh.js - 200 13748 application/javascript; charset=utf-8 6.1061ms
+2025-03-19 17:56:41.424 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/swagger/v1/swagger.json - null null
+2025-03-19 17:56:41.439 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 14.7054ms
+2025-03-19 17:56:41.493 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/swagger/v1/swagger.json - null null
+2025-03-19 17:56:41.504 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 11.593ms
+2025-03-19 17:56:50.143 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/swagger/index.html - null null
+2025-03-19 17:56:50.148 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/swagger/index.html - 200 null text/html;charset=utf-8 4.4201ms
+2025-03-19 17:56:50.181 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/swagger/index.js - null null
+2025-03-19 17:56:50.184 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/_framework/aspnetcore-browser-refresh.js - null null
+2025-03-19 17:56:50.185 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/swagger/index.js - 200 null application/javascript;charset=utf-8 3.58ms
+2025-03-19 17:56:50.187 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/_framework/aspnetcore-browser-refresh.js - 200 13748 application/javascript; charset=utf-8 3.3366ms
+2025-03-19 17:56:50.239 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/swagger/v1/swagger.json - null null
+2025-03-19 17:56:50.249 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 9.3902ms
+2025-03-19 17:57:05.345 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/api/Quizzes - null null
+2025-03-19 17:57:05.361 +07:00 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2025-03-19 17:57:05.364 +07:00 [INF] AuthenticationScheme: Identity.Application was challenged.
+2025-03-19 17:57:05.365 +07:00 [INF] HTTP GET /api/Quizzes responded 302 in 15.1625 ms
+2025-03-19 17:57:05.368 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/api/Quizzes - 302 0 null 23.0219ms
+2025-03-19 17:57:05.376 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/Account/Login?ReturnUrl=%2Fapi%2FQuizzes - null null
+2025-03-19 17:57:05.380 +07:00 [INF] HTTP GET /Account/Login responded 404 in 1.0038 ms
+2025-03-19 17:57:05.381 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/Account/Login?ReturnUrl=%2Fapi%2FQuizzes - 404 0 null 5.5934ms
+2025-03-19 17:57:05.386 +07:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5155/Account/Login, Response status code: 404
+2025-03-19 18:00:22.030 +07:00 [INF] Application is shutting down...
+2025-03-19 18:00:45.105 +07:00 [INF] User profile is available. Using 'C:\Users\longn\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-03-19 18:00:45.280 +07:00 [INF] Now listening on: http://localhost:5155
+2025-03-19 18:00:45.285 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-03-19 18:00:45.287 +07:00 [INF] Hosting environment: Development
+2025-03-19 18:00:45.289 +07:00 [INF] Content root path: D:\FSA\QuizApp.WebAPI\QuizApp.WebAPI
+2025-03-19 18:00:46.520 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/swagger/index.html - null null
+2025-03-19 18:00:46.595 +07:00 [ERR] An unhandled exception has occurred while executing the request.
+System.IO.FileNotFoundException: Could not find file 'D:\FSA\QuizApp.WebAPI\QuizApp.WebAPI\bin\Debug\net9.0\QuizApp.WebAPI.xml'.
+File name: 'D:\FSA\QuizApp.WebAPI\QuizApp.WebAPI\bin\Debug\net9.0\QuizApp.WebAPI.xml'
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.CreateFile(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options)
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.Open(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize, Nullable`1 unixCreateMode)
+   at System.IO.Strategies.OSFileStreamStrategy..ctor(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize, Nullable`1 unixCreateMode)
+   at System.IO.Strategies.FileStreamHelpers.ChooseStrategyCore(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize, Nullable`1 unixCreateMode)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize)
+   at System.Xml.XmlDownloadManager.GetStream(Uri uri, ICredentials credentials, IWebProxy proxy)
+   at System.Xml.XmlTextReaderImpl.OpenUrl()
+   at System.Xml.XmlTextReaderImpl.Read()
+   at System.Xml.XPath.XPathDocument.LoadFromReader(XmlReader reader, XmlSpace space)
+   at System.Xml.XPath.XPathDocument..ctor(String uri, XmlSpace space)
+   at Microsoft.Extensions.DependencyInjection.SwaggerGenOptionsExtensions.<>c__DisplayClass46_0.<IncludeXmlComments>b__0()
+   at Microsoft.Extensions.DependencyInjection.SwaggerGenOptionsExtensions.IncludeXmlComments(SwaggerGenOptions swaggerGenOptions, Func`1 xmlDocFactory, Boolean includeControllerXmlComments)
+   at Microsoft.Extensions.DependencyInjection.SwaggerGenOptionsExtensions.IncludeXmlComments(SwaggerGenOptions swaggerGenOptions, String filePath, Boolean includeControllerXmlComments)
+   at Program.<>c.<<Main>$>b__0_4(SwaggerGenOptions options) in D:\FSA\QuizApp.WebAPI\QuizApp.WebAPI\Program.cs:line 139
+   at Microsoft.Extensions.Options.ConfigureNamedOptions`1.Configure(String name, TOptions options)
+   at Microsoft.Extensions.Options.OptionsFactory`1.Create(String name)
+   at Microsoft.Extensions.Options.UnnamedOptionsManager`1.get_Value()
+   at Swashbuckle.AspNetCore.SwaggerGen.ConfigureSwaggerGeneratorOptions..ctor(IOptions`1 swaggerGenOptionsAccessor, IServiceProvider serviceProvider, IWebHostEnvironment hostingEnv)
+   at System.RuntimeMethodHandle.InvokeMethod(Object target, Void** arguments, Signature sig, Boolean isConstructor)
+   at System.Reflection.MethodBaseInvoker.InvokeDirectByRefWithFewArgs(Object obj, Span`1 copyOfArgs, BindingFlags invokeAttr)
+   at System.Reflection.MethodBaseInvoker.InvokeWithFewArgs(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at System.Reflection.RuntimeConstructorInfo.Invoke(BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitConstructor(ConstructorCallSite constructorCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSiteMain(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitDisposeCache(ServiceCallSite transientCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSite(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitIEnumerable(IEnumerableCallSite enumerableCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSiteMain(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitNoCache(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSite(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitConstructor(ConstructorCallSite constructorCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSiteMain(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitDisposeCache(ServiceCallSite transientCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSite(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitConstructor(ConstructorCallSite constructorCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSiteMain(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitRootCache(ServiceCallSite callSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSite(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.Resolve(ServiceCallSite callSite, ServiceProviderEngineScope scope)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.CreateServiceAccessor(ServiceIdentifier serviceIdentifier)
+   at System.Collections.Concurrent.ConcurrentDictionary`2.GetOrAdd(TKey key, Func`2 valueFactory)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.GetService(ServiceIdentifier serviceIdentifier, ServiceProviderEngineScope serviceProviderEngineScope)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngineScope.GetService(Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at Microsoft.Extensions.DependencyInjection.SwaggerGenServiceCollectionExtensions.<>c.<AddSwaggerGen>b__0_3(IServiceProvider s)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitFactory(FactoryCallSite factoryCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSiteMain(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitDisposeCache(ServiceCallSite transientCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSite(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitConstructor(ConstructorCallSite constructorCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSiteMain(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitDisposeCache(ServiceCallSite transientCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSite(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.Resolve(ServiceCallSite callSite, ServiceProviderEngineScope scope)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.DynamicServiceProviderEngine.<>c__DisplayClass2_0.<RealizeService>b__0(ServiceProviderEngineScope scope)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.GetService(ServiceIdentifier serviceIdentifier, ServiceProviderEngineScope serviceProviderEngineScope)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngineScope.GetService(Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at Microsoft.Extensions.DependencyInjection.SwaggerGenServiceCollectionExtensions.<>c.<AddSwaggerGen>b__0_1(IServiceProvider s)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitFactory(FactoryCallSite factoryCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSiteMain(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitDisposeCache(ServiceCallSite transientCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSite(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.Resolve(ServiceCallSite callSite, ServiceProviderEngineScope scope)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.DynamicServiceProviderEngine.<>c__DisplayClass2_0.<RealizeService>b__0(ServiceProviderEngineScope scope)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.GetService(ServiceIdentifier serviceIdentifier, ServiceProviderEngineScope serviceProviderEngineScope)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngineScope.GetService(Type serviceType)
+   at lambda_method2(Closure, Object, HttpContext, IServiceProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-03-19 18:00:46.685 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/swagger/index.html - 500 null text/html; charset=utf-8 167.0955ms
+2025-03-19 18:00:46.772 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/_framework/aspnetcore-browser-refresh.js - null null
+2025-03-19 18:00:46.778 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/_framework/aspnetcore-browser-refresh.js - 200 13748 application/javascript; charset=utf-8 6.4542ms
+2025-03-19 18:00:54.007 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/swagger/index.html - null null
+2025-03-19 18:00:54.011 +07:00 [ERR] An unhandled exception has occurred while executing the request.
+System.IO.FileNotFoundException: Could not find file 'D:\FSA\QuizApp.WebAPI\QuizApp.WebAPI\bin\Debug\net9.0\QuizApp.WebAPI.xml'.
+File name: 'D:\FSA\QuizApp.WebAPI\QuizApp.WebAPI\bin\Debug\net9.0\QuizApp.WebAPI.xml'
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.CreateFile(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options)
+   at Microsoft.Win32.SafeHandles.SafeFileHandle.Open(String fullPath, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize, Nullable`1 unixCreateMode)
+   at System.IO.Strategies.OSFileStreamStrategy..ctor(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize, Nullable`1 unixCreateMode)
+   at System.IO.Strategies.FileStreamHelpers.ChooseStrategyCore(String path, FileMode mode, FileAccess access, FileShare share, FileOptions options, Int64 preallocationSize, Nullable`1 unixCreateMode)
+   at System.IO.FileStream..ctor(String path, FileMode mode, FileAccess access, FileShare share, Int32 bufferSize)
+   at System.Xml.XmlDownloadManager.GetStream(Uri uri, ICredentials credentials, IWebProxy proxy)
+   at System.Xml.XmlTextReaderImpl.OpenUrl()
+   at System.Xml.XmlTextReaderImpl.Read()
+   at System.Xml.XPath.XPathDocument.LoadFromReader(XmlReader reader, XmlSpace space)
+   at System.Xml.XPath.XPathDocument..ctor(String uri, XmlSpace space)
+   at Microsoft.Extensions.DependencyInjection.SwaggerGenOptionsExtensions.<>c__DisplayClass46_0.<IncludeXmlComments>b__0()
+   at Microsoft.Extensions.DependencyInjection.SwaggerGenOptionsExtensions.IncludeXmlComments(SwaggerGenOptions swaggerGenOptions, Func`1 xmlDocFactory, Boolean includeControllerXmlComments)
+   at Microsoft.Extensions.DependencyInjection.SwaggerGenOptionsExtensions.IncludeXmlComments(SwaggerGenOptions swaggerGenOptions, String filePath, Boolean includeControllerXmlComments)
+   at Program.<>c.<<Main>$>b__0_4(SwaggerGenOptions options) in D:\FSA\QuizApp.WebAPI\QuizApp.WebAPI\Program.cs:line 139
+   at Microsoft.Extensions.Options.ConfigureNamedOptions`1.Configure(String name, TOptions options)
+   at Microsoft.Extensions.Options.OptionsFactory`1.Create(String name)
+   at Microsoft.Extensions.Options.UnnamedOptionsManager`1.get_Value()
+   at Swashbuckle.AspNetCore.SwaggerGen.ConfigureSwaggerGeneratorOptions..ctor(IOptions`1 swaggerGenOptionsAccessor, IServiceProvider serviceProvider, IWebHostEnvironment hostingEnv)
+   at InvokeStub_ConfigureSwaggerGeneratorOptions..ctor(Object, Span`1)
+   at System.Reflection.MethodBaseInvoker.InvokeWithFewArgs(Object obj, BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at System.Reflection.RuntimeConstructorInfo.Invoke(BindingFlags invokeAttr, Binder binder, Object[] parameters, CultureInfo culture)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitConstructor(ConstructorCallSite constructorCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSiteMain(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitDisposeCache(ServiceCallSite transientCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSite(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitIEnumerable(IEnumerableCallSite enumerableCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSiteMain(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitNoCache(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSite(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitConstructor(ConstructorCallSite constructorCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSiteMain(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitDisposeCache(ServiceCallSite transientCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSite(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitConstructor(ConstructorCallSite constructorCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSiteMain(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitRootCache(ServiceCallSite callSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSite(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.Resolve(ServiceCallSite callSite, ServiceProviderEngineScope scope)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.CreateServiceAccessor(ServiceIdentifier serviceIdentifier)
+   at System.Collections.Concurrent.ConcurrentDictionary`2.GetOrAdd(TKey key, Func`2 valueFactory)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.GetService(ServiceIdentifier serviceIdentifier, ServiceProviderEngineScope serviceProviderEngineScope)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngineScope.GetService(Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at Microsoft.Extensions.DependencyInjection.SwaggerGenServiceCollectionExtensions.<>c.<AddSwaggerGen>b__0_3(IServiceProvider s)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitFactory(FactoryCallSite factoryCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSiteMain(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitDisposeCache(ServiceCallSite transientCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSite(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitConstructor(ConstructorCallSite constructorCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSiteMain(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitDisposeCache(ServiceCallSite transientCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSite(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.Resolve(ServiceCallSite callSite, ServiceProviderEngineScope scope)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.DynamicServiceProviderEngine.<>c__DisplayClass2_0.<RealizeService>b__0(ServiceProviderEngineScope scope)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.GetService(ServiceIdentifier serviceIdentifier, ServiceProviderEngineScope serviceProviderEngineScope)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngineScope.GetService(Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService(IServiceProvider provider, Type serviceType)
+   at Microsoft.Extensions.DependencyInjection.ServiceProviderServiceExtensions.GetRequiredService[T](IServiceProvider provider)
+   at Microsoft.Extensions.DependencyInjection.SwaggerGenServiceCollectionExtensions.<>c.<AddSwaggerGen>b__0_1(IServiceProvider s)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitFactory(FactoryCallSite factoryCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSiteMain(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.VisitDisposeCache(ServiceCallSite transientCallSite, RuntimeResolverContext context)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteVisitor`2.VisitCallSite(ServiceCallSite callSite, TArgument argument)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.CallSiteRuntimeResolver.Resolve(ServiceCallSite callSite, ServiceProviderEngineScope scope)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.DynamicServiceProviderEngine.<>c__DisplayClass2_0.<RealizeService>b__0(ServiceProviderEngineScope scope)
+   at Microsoft.Extensions.DependencyInjection.ServiceProvider.GetService(ServiceIdentifier serviceIdentifier, ServiceProviderEngineScope serviceProviderEngineScope)
+   at Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceProviderEngineScope.GetService(Type serviceType)
+   at lambda_method2(Closure, Object, HttpContext, IServiceProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2025-03-19 18:00:54.039 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/swagger/index.html - 500 null text/html; charset=utf-8 32.0677ms
+2025-03-19 18:00:54.080 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/_framework/aspnetcore-browser-refresh.js - null null
+2025-03-19 18:00:54.082 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/_framework/aspnetcore-browser-refresh.js - 200 13748 application/javascript; charset=utf-8 2.3702ms
+2025-03-19 18:01:33.424 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/swagger/index.html - null null
+2025-03-19 18:01:33.545 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/swagger/index.html - 200 null text/html;charset=utf-8 121.3508ms
+2025-03-19 18:01:33.603 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/swagger/index.js - null null
+2025-03-19 18:01:33.608 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/swagger/index.js - 200 null application/javascript;charset=utf-8 5.3399ms
+2025-03-19 18:01:33.624 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/_framework/aspnetcore-browser-refresh.js - null null
+2025-03-19 18:01:33.628 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/_framework/aspnetcore-browser-refresh.js - 200 13748 application/javascript; charset=utf-8 3.493ms
+2025-03-19 18:01:33.975 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/swagger/v1/swagger.json - null null
+2025-03-19 18:01:34.084 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 108.4003ms
+2025-03-19 18:01:44.413 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/swagger/index.html - null null
+2025-03-19 18:01:44.418 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/swagger/index.html - 200 null text/html;charset=utf-8 4.9086ms
+2025-03-19 18:01:44.449 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/swagger/index.js - null null
+2025-03-19 18:01:44.450 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/_framework/aspnetcore-browser-refresh.js - null null
+2025-03-19 18:01:44.452 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/swagger/index.js - 200 null application/javascript;charset=utf-8 3.1077ms
+2025-03-19 18:01:44.454 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/_framework/aspnetcore-browser-refresh.js - 200 13748 application/javascript; charset=utf-8 3.0661ms
+2025-03-19 18:01:44.545 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/swagger/v1/swagger.json - null null
+2025-03-19 18:01:44.557 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 11.7745ms
+2025-03-19 18:02:09.973 +07:00 [INF] Request starting HTTP/1.1 POST http://localhost:5155/api/Auth/login - application/json 61
+2025-03-19 18:02:09.994 +07:00 [WRN] Failed to determine the https port for redirect.
+2025-03-19 18:02:09.996 +07:00 [INF] CORS policy execution failed.
+2025-03-19 18:02:09.998 +07:00 [INF] Request origin http://localhost:5155 does not have permission to access the resource.
+2025-03-19 18:02:10.003 +07:00 [INF] Executing endpoint 'QuizApp.WebAPI.Controllers.AuthController.Login (QuizApp.WebAPI)'
+2025-03-19 18:02:10.029 +07:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(QuizApp.Business.ViewModels.AuthViews.LoginViewModel) on controller QuizApp.WebAPI.Controllers.AuthController (QuizApp.WebAPI).
+2025-03-19 18:02:11.169 +07:00 [INF] Executed DbCommand (61ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[AccessFailedCount], [u].[Avatar], [u].[ConcurrencyStamp], [u].[DateOfBirth], [u].[DisplayName], [u].[Email], [u].[EmailConfirmed], [u].[FirstName], [u].[IsActive], [u].[IsDeleted], [u].[LastName], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [Security].[Users] AS [u]
+WHERE [u].[IsDeleted] = CAST(0 AS bit) AND [u].[NormalizedUserName] = @__normalizedUserName_0
+2025-03-19 18:02:11.395 +07:00 [INF] Executed DbCommand (11ms) [Parameters=[@__userId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT [r0].[Name]
+FROM [Security].[UserRoles] AS [u]
+INNER JOIN (
+    SELECT [r].[Id], [r].[Name]
+    FROM [Security].[Roles] AS [r]
+    WHERE [r].[IsDeleted] = CAST(0 AS bit)
+) AS [r0] ON [u].[RoleId] = [r0].[Id]
+WHERE [u].[UserId] = @__userId_0
+2025-03-19 18:02:11.445 +07:00 [INF] Executing OkObjectResult, writing value of type 'QuizApp.Business.ViewModels.AuthViews.LoginResponseViewModel'.
+2025-03-19 18:02:11.459 +07:00 [INF] Executed action QuizApp.WebAPI.Controllers.AuthController.Login (QuizApp.WebAPI) in 1423.5758ms
+2025-03-19 18:02:11.461 +07:00 [INF] Executed endpoint 'QuizApp.WebAPI.Controllers.AuthController.Login (QuizApp.WebAPI)'
+2025-03-19 18:02:11.465 +07:00 [INF] HTTP POST /api/Auth/login responded 200 in 1483.0477 ms
+2025-03-19 18:02:11.474 +07:00 [INF] Request finished HTTP/1.1 POST http://localhost:5155/api/Auth/login - 200 null application/json; charset=utf-8 1501.099ms
+2025-03-19 18:02:22.094 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/api/Questions - null null
+2025-03-19 18:02:22.105 +07:00 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2025-03-19 18:02:22.110 +07:00 [INF] AuthenticationScheme: Identity.Application was challenged.
+2025-03-19 18:02:22.112 +07:00 [INF] HTTP GET /api/Questions responded 302 in 13.3349 ms
+2025-03-19 18:02:22.115 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/api/Questions - 302 0 null 20.4829ms
+2025-03-19 18:02:22.120 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/Account/Login?ReturnUrl=%2Fapi%2FQuestions - null null
+2025-03-19 18:02:22.123 +07:00 [INF] HTTP GET /Account/Login responded 404 in 1.6018 ms
+2025-03-19 18:02:22.125 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/Account/Login?ReturnUrl=%2Fapi%2FQuestions - 404 0 null 5.0189ms
+2025-03-19 18:02:22.128 +07:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5155/Account/Login, Response status code: 404
+2025-03-19 18:02:30.765 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/api/Questions - null null
+2025-03-19 18:02:30.773 +07:00 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2025-03-19 18:02:30.775 +07:00 [INF] AuthenticationScheme: Identity.Application was challenged.
+2025-03-19 18:02:30.779 +07:00 [INF] HTTP GET /api/Questions responded 302 in 8.1265 ms
+2025-03-19 18:02:30.782 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/api/Questions - 302 0 null 16.597ms
+2025-03-19 18:02:30.786 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/Account/Login?ReturnUrl=%2Fapi%2FQuestions - null null
+2025-03-19 18:02:30.790 +07:00 [INF] HTTP GET /Account/Login responded 404 in 0.6625 ms
+2025-03-19 18:02:30.793 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/Account/Login?ReturnUrl=%2Fapi%2FQuestions - 404 0 null 6.4685ms
+2025-03-19 18:02:30.797 +07:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5155/Account/Login, Response status code: 404
+2025-03-19 18:02:59.325 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/api/Quizzes - null null
+2025-03-19 18:02:59.329 +07:00 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2025-03-19 18:02:59.330 +07:00 [INF] AuthenticationScheme: Identity.Application was challenged.
+2025-03-19 18:02:59.332 +07:00 [INF] HTTP GET /api/Quizzes responded 302 in 5.0303 ms
+2025-03-19 18:02:59.334 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/api/Quizzes - 302 0 null 9.3192ms
+2025-03-19 18:02:59.337 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/Account/Login?ReturnUrl=%2Fapi%2FQuizzes - null null
+2025-03-19 18:02:59.339 +07:00 [INF] HTTP GET /Account/Login responded 404 in 0.1069 ms
+2025-03-19 18:02:59.341 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/Account/Login?ReturnUrl=%2Fapi%2FQuizzes - 404 0 null 4.1892ms
+2025-03-19 18:02:59.343 +07:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5155/Account/Login, Response status code: 404
+2025-03-19 18:03:49.118 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/api/Questions - null null
+2025-03-19 18:03:49.121 +07:00 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2025-03-19 18:03:49.123 +07:00 [INF] AuthenticationScheme: Identity.Application was challenged.
+2025-03-19 18:03:49.125 +07:00 [INF] HTTP GET /api/Questions responded 302 in 3.8387 ms
+2025-03-19 18:03:49.127 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/api/Questions - 302 0 null 9.1093ms
+2025-03-19 18:03:49.131 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/Account/Login?ReturnUrl=%2Fapi%2FQuestions - null null
+2025-03-19 18:03:49.134 +07:00 [INF] HTTP GET /Account/Login responded 404 in 0.1573 ms
+2025-03-19 18:03:49.137 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/Account/Login?ReturnUrl=%2Fapi%2FQuestions - 404 0 null 5.6145ms
+2025-03-19 18:03:49.141 +07:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5155/Account/Login, Response status code: 404
+2025-03-19 18:09:56.206 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/swagger/index.html - null null
+2025-03-19 18:09:56.223 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/swagger/index.html - 200 null text/html;charset=utf-8 18.0757ms
+2025-03-19 18:09:56.328 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/_framework/aspnetcore-browser-refresh.js - null null
+2025-03-19 18:09:56.329 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/swagger/index.js - null null
+2025-03-19 18:09:56.331 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/_framework/aspnetcore-browser-refresh.js - 200 13748 application/javascript; charset=utf-8 3.2583ms
+2025-03-19 18:09:56.334 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/swagger/index.js - 200 null application/javascript;charset=utf-8 4.6036ms
+2025-03-19 18:09:57.167 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/swagger/v1/swagger.json - null null
+2025-03-19 18:09:57.234 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 67.1584ms
+2025-03-19 18:10:05.595 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/api/Quizzes - null null
+2025-03-19 18:10:05.610 +07:00 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2025-03-19 18:10:05.614 +07:00 [INF] AuthenticationScheme: Identity.Application was challenged.
+2025-03-19 18:10:05.616 +07:00 [INF] HTTP GET /api/Quizzes responded 302 in 15.9987 ms
+2025-03-19 18:10:05.619 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/api/Quizzes - 302 0 null 23.3049ms
+2025-03-19 18:10:05.625 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/Account/Login?ReturnUrl=%2Fapi%2FQuizzes - null null
+2025-03-19 18:10:05.630 +07:00 [INF] HTTP GET /Account/Login responded 404 in 2.3843 ms
+2025-03-19 18:10:05.631 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/Account/Login?ReturnUrl=%2Fapi%2FQuizzes - 404 0 null 6.5899ms
+2025-03-19 18:10:05.634 +07:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5155/Account/Login, Response status code: 404
+2025-03-19 18:10:10.386 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/api/Quizzes - null null
+2025-03-19 18:10:10.390 +07:00 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2025-03-19 18:10:10.391 +07:00 [INF] AuthenticationScheme: Identity.Application was challenged.
+2025-03-19 18:10:10.392 +07:00 [INF] HTTP GET /api/Quizzes responded 302 in 2.4162 ms
+2025-03-19 18:10:10.394 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/api/Quizzes - 302 0 null 8.1286ms
+2025-03-19 18:10:10.410 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/Account/Login?ReturnUrl=%2Fapi%2FQuizzes - null null
+2025-03-19 18:10:10.413 +07:00 [INF] HTTP GET /Account/Login responded 404 in 0.1425 ms
+2025-03-19 18:10:10.416 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/Account/Login?ReturnUrl=%2Fapi%2FQuizzes - 404 0 null 5.1238ms
+2025-03-19 18:10:10.419 +07:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5155/Account/Login, Response status code: 404
+2025-03-19 18:10:11.766 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/swagger/index.html - null null
+2025-03-19 18:10:11.769 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/swagger/index.html - 200 null text/html;charset=utf-8 3.2777ms
+2025-03-19 18:10:11.946 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/swagger/index.js - null null
+2025-03-19 18:10:11.950 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/swagger/index.js - 200 null application/javascript;charset=utf-8 3.4116ms
+2025-03-19 18:10:12.002 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/_framework/aspnetcore-browser-refresh.js - null null
+2025-03-19 18:10:12.005 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/_framework/aspnetcore-browser-refresh.js - 200 13748 application/javascript; charset=utf-8 3.3147ms
+2025-03-19 18:10:12.097 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/swagger/v1/swagger.json - null null
+2025-03-19 18:10:12.335 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 212.57ms
+2025-03-19 18:10:17.257 +07:00 [INF] Application is shutting down...
+2025-03-19 18:10:30.043 +07:00 [INF] User profile is available. Using 'C:\Users\longn\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2025-03-19 18:10:30.176 +07:00 [INF] Now listening on: http://localhost:5155
+2025-03-19 18:10:30.179 +07:00 [INF] Application started. Press Ctrl+C to shut down.
+2025-03-19 18:10:30.181 +07:00 [INF] Hosting environment: Development
+2025-03-19 18:10:30.182 +07:00 [INF] Content root path: D:\FSA\QuizApp.WebAPI\QuizApp.WebAPI
+2025-03-19 18:10:45.333 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/swagger/index.html - null null
+2025-03-19 18:10:45.462 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/swagger/index.html - 200 null text/html;charset=utf-8 131.5765ms
+2025-03-19 18:10:45.488 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/_framework/aspnetcore-browser-refresh.js - null null
+2025-03-19 18:10:45.488 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/swagger/index.js - null null
+2025-03-19 18:10:45.494 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/_framework/aspnetcore-browser-refresh.js - 200 13748 application/javascript; charset=utf-8 5.8019ms
+2025-03-19 18:10:45.496 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/swagger/index.js - 200 null application/javascript;charset=utf-8 7.6966ms
+2025-03-19 18:10:45.566 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/swagger/v1/swagger.json - null null
+2025-03-19 18:10:45.670 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 103.758ms
+2025-03-19 18:11:08.943 +07:00 [INF] Request starting HTTP/1.1 POST http://localhost:5155/api/Auth/login - application/json 61
+2025-03-19 18:11:08.965 +07:00 [WRN] Failed to determine the https port for redirect.
+2025-03-19 18:11:08.967 +07:00 [INF] CORS policy execution failed.
+2025-03-19 18:11:08.969 +07:00 [INF] Request origin http://localhost:5155 does not have permission to access the resource.
+2025-03-19 18:11:08.971 +07:00 [INF] Executing endpoint 'QuizApp.WebAPI.Controllers.AuthController.Login (QuizApp.WebAPI)'
+2025-03-19 18:11:08.995 +07:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(QuizApp.Business.ViewModels.AuthViews.LoginViewModel) on controller QuizApp.WebAPI.Controllers.AuthController (QuizApp.WebAPI).
+2025-03-19 18:11:10.272 +07:00 [INF] Executed DbCommand (58ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[AccessFailedCount], [u].[Avatar], [u].[ConcurrencyStamp], [u].[DateOfBirth], [u].[DisplayName], [u].[Email], [u].[EmailConfirmed], [u].[FirstName], [u].[IsActive], [u].[IsDeleted], [u].[LastName], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [Security].[Users] AS [u]
+WHERE [u].[IsDeleted] = CAST(0 AS bit) AND [u].[NormalizedUserName] = @__normalizedUserName_0
+2025-03-19 18:11:10.491 +07:00 [INF] Executed DbCommand (13ms) [Parameters=[@__userId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT [r0].[Name]
+FROM [Security].[UserRoles] AS [u]
+INNER JOIN (
+    SELECT [r].[Id], [r].[Name]
+    FROM [Security].[Roles] AS [r]
+    WHERE [r].[IsDeleted] = CAST(0 AS bit)
+) AS [r0] ON [u].[RoleId] = [r0].[Id]
+WHERE [u].[UserId] = @__userId_0
+2025-03-19 18:11:10.538 +07:00 [INF] Executing OkObjectResult, writing value of type 'QuizApp.Business.ViewModels.AuthViews.LoginResponseViewModel'.
+2025-03-19 18:11:10.551 +07:00 [INF] Executed action QuizApp.WebAPI.Controllers.AuthController.Login (QuizApp.WebAPI) in 1548.9789ms
+2025-03-19 18:11:10.552 +07:00 [INF] Executed endpoint 'QuizApp.WebAPI.Controllers.AuthController.Login (QuizApp.WebAPI)'
+2025-03-19 18:11:10.556 +07:00 [INF] HTTP POST /api/Auth/login responded 200 in 1604.2102 ms
+2025-03-19 18:11:10.564 +07:00 [INF] Request finished HTTP/1.1 POST http://localhost:5155/api/Auth/login - 200 null application/json; charset=utf-8 1621.3891ms
+2025-03-19 18:11:27.903 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/api/Quizzes - null null
+2025-03-19 18:11:27.915 +07:00 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2025-03-19 18:11:27.920 +07:00 [INF] AuthenticationScheme: Identity.Application was challenged.
+2025-03-19 18:11:27.921 +07:00 [INF] HTTP GET /api/Quizzes responded 302 in 13.3604 ms
+2025-03-19 18:11:27.925 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/api/Quizzes - 302 0 null 22.1689ms
+2025-03-19 18:11:27.929 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/Account/Login?ReturnUrl=%2Fapi%2FQuizzes - null null
+2025-03-19 18:11:27.933 +07:00 [INF] HTTP GET /Account/Login responded 404 in 1.5759 ms
+2025-03-19 18:11:27.935 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/Account/Login?ReturnUrl=%2Fapi%2FQuizzes - 404 0 null 6.1199ms
+2025-03-19 18:11:27.938 +07:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5155/Account/Login, Response status code: 404
+2025-03-19 18:12:29.983 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/swagger/index.html - null null
+2025-03-19 18:12:29.987 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/swagger/index.html - 200 null text/html;charset=utf-8 4.338ms
+2025-03-19 18:12:30.018 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/_framework/aspnetcore-browser-refresh.js - null null
+2025-03-19 18:12:30.018 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/swagger/index.js - null null
+2025-03-19 18:12:30.021 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/_framework/aspnetcore-browser-refresh.js - 200 13748 application/javascript; charset=utf-8 3.0276ms
+2025-03-19 18:12:30.024 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/swagger/index.js - 200 null application/javascript;charset=utf-8 5.8772ms
+2025-03-19 18:12:30.235 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/swagger/v1/swagger.json - null null
+2025-03-19 18:12:30.251 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 16.241ms
+2025-03-19 18:12:53.695 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/api/Quizzes - null null
+2025-03-19 18:12:53.701 +07:00 [INF] Executing endpoint 'QuizApp.WebAPI.Controllers.QuizController.GetAll (QuizApp.WebAPI)'
+2025-03-19 18:12:53.705 +07:00 [INF] Route matched with {action = "GetAll", controller = "Quiz"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAll() on controller QuizApp.WebAPI.Controllers.QuizController (QuizApp.WebAPI).
+2025-03-19 18:12:53.850 +07:00 [INF] Executed DbCommand (29ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [q].[Id], [q].[Description], [q].[Duration], [q].[IsActive], [q].[IsDeleted], [q].[QuestionId], [q].[ThumbnailUrl], [q].[Title], [q0].[QuizId], [q0].[QuestionId], [q0].[Order]
+FROM [Quizzes] AS [q]
+LEFT JOIN [QuizQuestions] AS [q0] ON [q].[Id] = [q0].[QuizId]
+WHERE [q].[IsDeleted] = CAST(0 AS bit)
+ORDER BY [q].[Id], [q0].[QuizId]
+2025-03-19 18:12:53.905 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+ListSelectIterator`2[[QuizApp.WebAPI.Models.Quiz, QuizApp.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[QuizApp.Business.ViewModels.QuizViews.QuizViewModel, QuizApp.Business, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-03-19 18:12:53.914 +07:00 [INF] Executed action QuizApp.WebAPI.Controllers.QuizController.GetAll (QuizApp.WebAPI) in 205.3173ms
+2025-03-19 18:12:53.916 +07:00 [INF] Executed endpoint 'QuizApp.WebAPI.Controllers.QuizController.GetAll (QuizApp.WebAPI)'
+2025-03-19 18:12:53.917 +07:00 [INF] HTTP GET /api/Quizzes responded 200 in 217.7194 ms
+2025-03-19 18:12:53.921 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/api/Quizzes - 200 null application/json; charset=utf-8 225.8487ms
+2025-03-19 18:14:45.317 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/api/Questions - null null
+2025-03-19 18:14:45.323 +07:00 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2025-03-19 18:14:45.329 +07:00 [INF] AuthenticationScheme: Identity.Application was challenged.
+2025-03-19 18:14:45.330 +07:00 [INF] HTTP GET /api/Questions responded 302 in 9.5962 ms
+2025-03-19 18:14:45.332 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/api/Questions - 302 0 null 15.3806ms
+2025-03-19 18:14:45.374 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/Account/Login?ReturnUrl=%2Fapi%2FQuestions - null null
+2025-03-19 18:14:45.379 +07:00 [INF] HTTP GET /Account/Login responded 404 in 0.1617 ms
+2025-03-19 18:14:45.382 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/Account/Login?ReturnUrl=%2Fapi%2FQuestions - 404 0 null 8.0305ms
+2025-03-19 18:14:45.385 +07:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5155/Account/Login, Response status code: 404
+2025-03-19 18:16:58.732 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/swagger/index.html - null null
+2025-03-19 18:16:58.761 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/swagger/index.html - 200 null text/html;charset=utf-8 26.2074ms
+2025-03-19 18:16:58.996 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/_framework/aspnetcore-browser-refresh.js - null null
+2025-03-19 18:16:58.999 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/swagger/index.js - null null
+2025-03-19 18:16:59.003 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/_framework/aspnetcore-browser-refresh.js - 200 13748 application/javascript; charset=utf-8 6.7609ms
+2025-03-19 18:16:59.006 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/swagger/index.js - 200 null application/javascript;charset=utf-8 7.013ms
+2025-03-19 18:16:59.541 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/swagger/v1/swagger.json - null null
+2025-03-19 18:16:59.600 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 59.256ms
+2025-03-19 18:17:39.623 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/swagger/index.html - null null
+2025-03-19 18:17:39.637 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/swagger/index.html - 200 null text/html;charset=utf-8 14.5149ms
+2025-03-19 18:17:39.735 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/swagger/index.js - null null
+2025-03-19 18:17:39.736 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/_framework/aspnetcore-browser-refresh.js - null null
+2025-03-19 18:17:39.742 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/swagger/index.js - 200 null application/javascript;charset=utf-8 6.5477ms
+2025-03-19 18:17:39.755 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/_framework/aspnetcore-browser-refresh.js - 200 13748 application/javascript; charset=utf-8 18.8507ms
+2025-03-19 18:17:39.960 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/swagger/v1/swagger.json - null null
+2025-03-19 18:17:39.985 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 25.5858ms
+2025-03-19 18:18:10.094 +07:00 [INF] Request starting HTTP/1.1 POST http://localhost:5155/api/Auth/login - application/json 61
+2025-03-19 18:18:10.107 +07:00 [INF] CORS policy execution failed.
+2025-03-19 18:18:10.109 +07:00 [INF] Request origin http://localhost:5155 does not have permission to access the resource.
+2025-03-19 18:18:10.111 +07:00 [INF] Executing endpoint 'QuizApp.WebAPI.Controllers.AuthController.Login (QuizApp.WebAPI)'
+2025-03-19 18:18:10.137 +07:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(QuizApp.Business.ViewModels.AuthViews.LoginViewModel) on controller QuizApp.WebAPI.Controllers.AuthController (QuizApp.WebAPI).
+2025-03-19 18:18:10.283 +07:00 [INF] Executed DbCommand (41ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[AccessFailedCount], [u].[Avatar], [u].[ConcurrencyStamp], [u].[DateOfBirth], [u].[DisplayName], [u].[Email], [u].[EmailConfirmed], [u].[FirstName], [u].[IsActive], [u].[IsDeleted], [u].[LastName], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [Security].[Users] AS [u]
+WHERE [u].[IsDeleted] = CAST(0 AS bit) AND [u].[NormalizedUserName] = @__normalizedUserName_0
+2025-03-19 18:18:10.375 +07:00 [INF] Executed DbCommand (10ms) [Parameters=[@__userId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT [r0].[Name]
+FROM [Security].[UserRoles] AS [u]
+INNER JOIN (
+    SELECT [r].[Id], [r].[Name]
+    FROM [Security].[Roles] AS [r]
+    WHERE [r].[IsDeleted] = CAST(0 AS bit)
+) AS [r0] ON [u].[RoleId] = [r0].[Id]
+WHERE [u].[UserId] = @__userId_0
+2025-03-19 18:18:10.389 +07:00 [INF] Executing OkObjectResult, writing value of type 'QuizApp.Business.ViewModels.AuthViews.LoginResponseViewModel'.
+2025-03-19 18:18:10.393 +07:00 [INF] Executed action QuizApp.WebAPI.Controllers.AuthController.Login (QuizApp.WebAPI) in 253.6197ms
+2025-03-19 18:18:10.395 +07:00 [INF] Executed endpoint 'QuizApp.WebAPI.Controllers.AuthController.Login (QuizApp.WebAPI)'
+2025-03-19 18:18:10.396 +07:00 [INF] HTTP POST /api/Auth/login responded 200 in 296.9475 ms
+2025-03-19 18:18:10.399 +07:00 [INF] Request finished HTTP/1.1 POST http://localhost:5155/api/Auth/login - 200 null application/json; charset=utf-8 305.6608ms
+2025-03-19 18:18:27.287 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/api/Quizzes - null null
+2025-03-19 18:18:27.294 +07:00 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+2025-03-19 18:18:27.298 +07:00 [INF] AuthenticationScheme: Identity.Application was challenged.
+2025-03-19 18:18:27.299 +07:00 [INF] HTTP GET /api/Quizzes responded 302 in 7.8108 ms
+2025-03-19 18:18:27.301 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/api/Quizzes - 302 0 null 13.6437ms
+2025-03-19 18:18:27.307 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/Account/Login?ReturnUrl=%2Fapi%2FQuizzes - null null
+2025-03-19 18:18:27.309 +07:00 [INF] HTTP GET /Account/Login responded 404 in 0.0868 ms
+2025-03-19 18:18:27.311 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/Account/Login?ReturnUrl=%2Fapi%2FQuizzes - 404 0 null 3.7794ms
+2025-03-19 18:18:27.314 +07:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: GET http://localhost:5155/Account/Login, Response status code: 404
+2025-03-19 18:20:12.699 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/swagger/index.html - null null
+2025-03-19 18:20:12.707 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/swagger/index.html - 200 null text/html;charset=utf-8 7.7568ms
+2025-03-19 18:20:12.728 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/swagger/index.js - null null
+2025-03-19 18:20:12.728 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/_framework/aspnetcore-browser-refresh.js - null null
+2025-03-19 18:20:12.735 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/_framework/aspnetcore-browser-refresh.js - 200 13748 application/javascript; charset=utf-8 6.8939ms
+2025-03-19 18:20:12.735 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/swagger/index.js - 200 null application/javascript;charset=utf-8 6.5999ms
+2025-03-19 18:20:13.166 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/swagger/v1/swagger.json - null null
+2025-03-19 18:20:13.203 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 37.1904ms
+2025-03-19 18:20:18.042 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/_framework/aspnetcore-browser-refresh.js - null null
+2025-03-19 18:20:18.045 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/_framework/aspnetcore-browser-refresh.js - 200 13748 application/javascript; charset=utf-8 2.8891ms
+2025-03-19 18:20:18.283 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/swagger/v1/swagger.json - null null
+2025-03-19 18:20:18.294 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 11.3135ms
+2025-03-19 18:21:01.218 +07:00 [INF] Request starting HTTP/1.1 POST http://localhost:5155/api/Auth/login - application/json 61
+2025-03-19 18:21:01.222 +07:00 [INF] CORS policy execution failed.
+2025-03-19 18:21:01.223 +07:00 [INF] Request origin http://localhost:5155 does not have permission to access the resource.
+2025-03-19 18:21:01.224 +07:00 [INF] Executing endpoint 'QuizApp.WebAPI.Controllers.AuthController.Login (QuizApp.WebAPI)'
+2025-03-19 18:21:01.238 +07:00 [INF] Route matched with {action = "Login", controller = "Auth"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(QuizApp.Business.ViewModels.AuthViews.LoginViewModel) on controller QuizApp.WebAPI.Controllers.AuthController (QuizApp.WebAPI).
+2025-03-19 18:21:01.309 +07:00 [INF] Executed DbCommand (14ms) [Parameters=[@__normalizedUserName_0='?' (Size = 256)], CommandType='"Text"', CommandTimeout='30']
+SELECT TOP(1) [u].[Id], [u].[AccessFailedCount], [u].[Avatar], [u].[ConcurrencyStamp], [u].[DateOfBirth], [u].[DisplayName], [u].[Email], [u].[EmailConfirmed], [u].[FirstName], [u].[IsActive], [u].[IsDeleted], [u].[LastName], [u].[LockoutEnabled], [u].[LockoutEnd], [u].[NormalizedEmail], [u].[NormalizedUserName], [u].[PasswordHash], [u].[PhoneNumber], [u].[PhoneNumberConfirmed], [u].[SecurityStamp], [u].[TwoFactorEnabled], [u].[UserName]
+FROM [Security].[Users] AS [u]
+WHERE [u].[IsDeleted] = CAST(0 AS bit) AND [u].[NormalizedUserName] = @__normalizedUserName_0
+2025-03-19 18:21:01.382 +07:00 [INF] Executed DbCommand (5ms) [Parameters=[@__userId_0='?' (DbType = Guid)], CommandType='"Text"', CommandTimeout='30']
+SELECT [r0].[Name]
+FROM [Security].[UserRoles] AS [u]
+INNER JOIN (
+    SELECT [r].[Id], [r].[Name]
+    FROM [Security].[Roles] AS [r]
+    WHERE [r].[IsDeleted] = CAST(0 AS bit)
+) AS [r0] ON [u].[RoleId] = [r0].[Id]
+WHERE [u].[UserId] = @__userId_0
+2025-03-19 18:21:01.390 +07:00 [INF] Executing OkObjectResult, writing value of type 'QuizApp.Business.ViewModels.AuthViews.LoginResponseViewModel'.
+2025-03-19 18:21:01.392 +07:00 [INF] Executed action QuizApp.WebAPI.Controllers.AuthController.Login (QuizApp.WebAPI) in 151.608ms
+2025-03-19 18:21:01.394 +07:00 [INF] Executed endpoint 'QuizApp.WebAPI.Controllers.AuthController.Login (QuizApp.WebAPI)'
+2025-03-19 18:21:01.395 +07:00 [INF] HTTP POST /api/Auth/login responded 200 in 173.9628 ms
+2025-03-19 18:21:01.398 +07:00 [INF] Request finished HTTP/1.1 POST http://localhost:5155/api/Auth/login - 200 null application/json; charset=utf-8 179.5928ms
+2025-03-19 18:21:18.585 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/api/Quizzes - null null
+2025-03-19 18:21:18.702 +07:00 [INF] Executing endpoint 'QuizApp.WebAPI.Controllers.QuizController.GetAll (QuizApp.WebAPI)'
+2025-03-19 18:21:18.706 +07:00 [INF] Route matched with {action = "GetAll", controller = "Quiz"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetAll() on controller QuizApp.WebAPI.Controllers.QuizController (QuizApp.WebAPI).
+2025-03-19 18:21:18.729 +07:00 [INF] Executed DbCommand (12ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [q].[Id], [q].[Description], [q].[Duration], [q].[IsActive], [q].[IsDeleted], [q].[QuestionId], [q].[ThumbnailUrl], [q].[Title], [q0].[QuizId], [q0].[QuestionId], [q0].[Order]
+FROM [Quizzes] AS [q]
+LEFT JOIN [QuizQuestions] AS [q0] ON [q].[Id] = [q0].[QuizId]
+WHERE [q].[IsDeleted] = CAST(0 AS bit)
+ORDER BY [q].[Id], [q0].[QuizId]
+2025-03-19 18:21:18.759 +07:00 [INF] Executing OkObjectResult, writing value of type 'System.Linq.Enumerable+ListSelectIterator`2[[QuizApp.WebAPI.Models.Quiz, QuizApp.Models, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null],[QuizApp.Business.ViewModels.QuizViews.QuizViewModel, QuizApp.Business, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2025-03-19 18:21:18.763 +07:00 [INF] Executed action QuizApp.WebAPI.Controllers.QuizController.GetAll (QuizApp.WebAPI) in 54.2038ms
+2025-03-19 18:21:18.765 +07:00 [INF] Executed endpoint 'QuizApp.WebAPI.Controllers.QuizController.GetAll (QuizApp.WebAPI)'
+2025-03-19 18:21:18.767 +07:00 [INF] HTTP GET /api/Quizzes responded 200 in 178.9749 ms
+2025-03-19 18:21:18.769 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/api/Quizzes - 200 null application/json; charset=utf-8 184.1065ms
+2025-03-19 18:22:31.380 +07:00 [INF] Request starting HTTP/1.1 DELETE http://localhost:5155/api/Quizzes/93f8139d-3195-4a4e-647b-08dd5c670130 - null null
+2025-03-19 18:22:31.402 +07:00 [INF] Authorization failed. These requirements were not met:
+RolesAuthorizationRequirement:User.IsInRole must be true for one of the following roles: (Admin|Editor)
+2025-03-19 18:22:31.408 +07:00 [INF] AuthenticationScheme: Bearer was forbidden.
+2025-03-19 18:22:31.409 +07:00 [INF] HTTP DELETE /api/Quizzes/93f8139d-3195-4a4e-647b-08dd5c670130 responded 403 in 19.6101 ms
+2025-03-19 18:22:31.411 +07:00 [INF] Request finished HTTP/1.1 DELETE http://localhost:5155/api/Quizzes/93f8139d-3195-4a4e-647b-08dd5c670130 - 403 0 null 31.2686ms
+2025-03-19 18:23:05.009 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/swagger/index.html - null null
+2025-03-19 18:23:05.046 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/swagger/index.html - 200 null text/html;charset=utf-8 36.6799ms
+2025-03-19 18:23:05.057 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/swagger/index.html - null null
+2025-03-19 18:23:05.064 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/swagger/index.html - 200 null text/html;charset=utf-8 6.3818ms
+2025-03-19 18:23:05.288 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/_framework/aspnetcore-browser-refresh.js - null null
+2025-03-19 18:23:05.289 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/swagger/index.js - null null
+2025-03-19 18:23:05.293 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/_framework/aspnetcore-browser-refresh.js - 200 13748 application/javascript; charset=utf-8 4.5732ms
+2025-03-19 18:23:05.299 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/swagger/index.js - 200 null application/javascript;charset=utf-8 9.53ms
+2025-03-19 18:23:05.299 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/_framework/aspnetcore-browser-refresh.js - null null
+2025-03-19 18:23:05.306 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/swagger/index.js - null null
+2025-03-19 18:23:05.309 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/_framework/aspnetcore-browser-refresh.js - 200 13748 application/javascript; charset=utf-8 10.6954ms
+2025-03-19 18:23:05.314 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/swagger/index.js - 200 null application/javascript;charset=utf-8 7.7483ms
+2025-03-19 18:23:05.629 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/swagger/v1/swagger.json - null null
+2025-03-19 18:23:05.687 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 57.8678ms
+2025-03-19 18:23:05.828 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/swagger/v1/swagger.json - null null
+2025-03-19 18:23:05.842 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 13.5259ms
+2025-03-19 18:23:30.693 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/swagger/index.html - null null
+2025-03-19 18:23:30.696 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/swagger/index.html - 200 null text/html;charset=utf-8 3.0882ms
+2025-03-19 18:23:30.698 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/swagger/index.html - null null
+2025-03-19 18:23:30.701 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/swagger/index.html - 200 null text/html;charset=utf-8 2.4605ms
+2025-03-19 18:23:30.716 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/swagger/index.html - null null
+2025-03-19 18:23:30.720 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/swagger/index.html - 200 null text/html;charset=utf-8 4.6665ms
+2025-03-19 18:23:30.725 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/swagger/index.html - null null
+2025-03-19 18:23:30.729 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/swagger/index.html - 200 null text/html;charset=utf-8 4.0569ms
+2025-03-19 18:23:30.794 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/swagger/index.js - null null
+2025-03-19 18:23:30.796 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/swagger/index.js - 200 null application/javascript;charset=utf-8 2.1286ms
+2025-03-19 18:23:30.797 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/_framework/aspnetcore-browser-refresh.js - null null
+2025-03-19 18:23:30.799 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/swagger/index.js - null null
+2025-03-19 18:23:30.802 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/_framework/aspnetcore-browser-refresh.js - 200 13748 application/javascript; charset=utf-8 4.257ms
+2025-03-19 18:23:30.805 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/swagger/index.js - 200 null application/javascript;charset=utf-8 6.3782ms
+2025-03-19 18:23:30.809 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/_framework/aspnetcore-browser-refresh.js - null null
+2025-03-19 18:23:30.849 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/_framework/aspnetcore-browser-refresh.js - 200 13748 application/javascript; charset=utf-8 40.4205ms
+2025-03-19 18:23:31.049 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/swagger/v1/swagger.json - null null
+2025-03-19 18:23:31.065 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 16.2341ms
+2025-03-19 18:23:31.075 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/swagger/v1/swagger.json - null null
+2025-03-19 18:23:31.093 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 18.106ms
+2025-03-19 18:23:36.948 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/swagger/index.html - null null
+2025-03-19 18:23:36.952 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/swagger/index.html - 200 null text/html;charset=utf-8 3.9278ms
+2025-03-19 18:23:36.963 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/swagger/index.html - null null
+2025-03-19 18:23:36.966 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/swagger/index.html - 200 null text/html;charset=utf-8 2.7005ms
+2025-03-19 18:23:36.970 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/swagger/index.html - null null
+2025-03-19 18:23:36.974 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/swagger/index.html - 200 null text/html;charset=utf-8 4.3071ms
+2025-03-19 18:23:37.052 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/swagger/index.js - null null
+2025-03-19 18:23:37.054 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/_framework/aspnetcore-browser-refresh.js - null null
+2025-03-19 18:23:37.056 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/swagger/index.js - 200 null application/javascript;charset=utf-8 3.7844ms
+2025-03-19 18:23:37.058 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/_framework/aspnetcore-browser-refresh.js - 200 13748 application/javascript; charset=utf-8 4.0114ms
+2025-03-19 18:23:37.061 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/swagger/index.js - null null
+2025-03-19 18:23:37.064 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/_framework/aspnetcore-browser-refresh.js - null null
+2025-03-19 18:23:37.066 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/swagger/index.js - 200 null application/javascript;charset=utf-8 4.9549ms
+2025-03-19 18:23:37.069 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/_framework/aspnetcore-browser-refresh.js - 200 13748 application/javascript; charset=utf-8 5.0761ms
+2025-03-19 18:23:37.217 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/swagger/v1/swagger.json - null null
+2025-03-19 18:23:37.227 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 10.4594ms
+2025-03-19 18:23:37.229 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/swagger/v1/swagger.json - null null
+2025-03-19 18:23:37.237 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 7.7981ms
+2025-03-19 18:27:28.661 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/swagger/index.html - null null
+2025-03-19 18:27:28.708 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/swagger/index.html - null null
+2025-03-19 18:27:28.710 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/swagger/index.html - 200 null text/html;charset=utf-8 48.6387ms
+2025-03-19 18:27:28.714 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/swagger/index.html - 200 null text/html;charset=utf-8 5.9425ms
+2025-03-19 18:27:29.022 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/swagger/index.js - null null
+2025-03-19 18:27:29.022 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/_framework/aspnetcore-browser-refresh.js - null null
+2025-03-19 18:27:29.032 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/swagger/index.js - 200 null application/javascript;charset=utf-8 10.2103ms
+2025-03-19 18:27:29.036 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/_framework/aspnetcore-browser-refresh.js - 200 13748 application/javascript; charset=utf-8 15.1505ms
+2025-03-19 18:27:29.038 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/swagger/index.js - null null
+2025-03-19 18:27:29.043 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/_framework/aspnetcore-browser-refresh.js - null null
+2025-03-19 18:27:29.048 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/swagger/index.js - 200 null application/javascript;charset=utf-8 9.8095ms
+2025-03-19 18:27:29.051 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/_framework/aspnetcore-browser-refresh.js - 200 13748 application/javascript; charset=utf-8 7.7558ms
+2025-03-19 18:27:29.306 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/swagger/v1/swagger.json - null null
+2025-03-19 18:27:29.381 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 74.8701ms
+2025-03-19 18:27:29.386 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/swagger/v1/swagger.json - null null
+2025-03-19 18:27:29.417 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 30.9619ms
+2025-03-19 18:27:52.021 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/swagger/index.html - null null
+2025-03-19 18:27:52.029 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/swagger/index.html - 200 null text/html;charset=utf-8 8.4609ms
+2025-03-19 18:27:52.034 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/swagger/index.html - null null
+2025-03-19 18:27:52.039 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/swagger/index.html - 200 null text/html;charset=utf-8 5.1474ms
+2025-03-19 18:27:52.111 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/swagger/index.js - null null
+2025-03-19 18:27:52.117 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/_framework/aspnetcore-browser-refresh.js - null null
+2025-03-19 18:27:52.119 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/swagger/index.js - 200 null application/javascript;charset=utf-8 7.5327ms
+2025-03-19 18:27:52.128 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/swagger/index.js - null null
+2025-03-19 18:27:52.120 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/_framework/aspnetcore-browser-refresh.js - 200 13748 application/javascript; charset=utf-8 3.64ms
+2025-03-19 18:27:52.134 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/swagger/index.js - 200 null application/javascript;charset=utf-8 5.9635ms
+2025-03-19 18:27:52.151 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/_framework/aspnetcore-browser-refresh.js - null null
+2025-03-19 18:27:52.155 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/_framework/aspnetcore-browser-refresh.js - 200 13748 application/javascript; charset=utf-8 4.4726ms
+2025-03-19 18:27:52.334 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/swagger/v1/swagger.json - null null
+2025-03-19 18:27:52.351 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 16.7542ms
+2025-03-19 18:27:52.396 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/swagger/v1/swagger.json - null null
+2025-03-19 18:27:52.407 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 11.0837ms
+2025-03-19 18:28:23.537 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/swagger/index.html - null null
+2025-03-19 18:28:23.541 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/swagger/index.html - 200 null text/html;charset=utf-8 3.5432ms
+2025-03-19 18:28:23.544 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/swagger/index.html - null null
+2025-03-19 18:28:23.547 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/swagger/index.html - 200 null text/html;charset=utf-8 2.8343ms
+2025-03-19 18:28:23.565 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/swagger/index.html - null null
+2025-03-19 18:28:23.569 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/swagger/index.html - 200 null text/html;charset=utf-8 4.246ms
+2025-03-19 18:28:23.572 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/swagger/index.html - null null
+2025-03-19 18:28:23.576 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/swagger/index.html - 200 null text/html;charset=utf-8 4.0408ms
+2025-03-19 18:28:23.606 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/swagger/index.js - null null
+2025-03-19 18:28:23.610 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/swagger/index.js - 200 null application/javascript;charset=utf-8 4.0474ms
+2025-03-19 18:28:23.610 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/_framework/aspnetcore-browser-refresh.js - null null
+2025-03-19 18:28:23.613 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/swagger/index.js - null null
+2025-03-19 18:28:23.616 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/_framework/aspnetcore-browser-refresh.js - 200 13748 application/javascript; charset=utf-8 6.0392ms
+2025-03-19 18:28:23.620 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/swagger/index.js - 200 null application/javascript;charset=utf-8 6.5531ms
+2025-03-19 18:28:23.624 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/_framework/aspnetcore-browser-refresh.js - null null
+2025-03-19 18:28:23.632 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/_framework/aspnetcore-browser-refresh.js - 200 13748 application/javascript; charset=utf-8 8.3336ms
+2025-03-19 18:28:23.772 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/swagger/v1/swagger.json - null null
+2025-03-19 18:28:23.785 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 12.1954ms
+2025-03-19 18:28:23.787 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/swagger/v1/swagger.json - null null
+2025-03-19 18:28:23.806 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 19.1147ms
+2025-03-19 18:28:53.240 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/swagger/index.html - null null
+2025-03-19 18:28:53.244 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/swagger/index.html - 200 null text/html;charset=utf-8 4.6304ms
+2025-03-19 18:28:53.247 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/swagger/index.html - null null
+2025-03-19 18:28:53.251 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/swagger/index.html - 200 null text/html;charset=utf-8 3.8931ms
+2025-03-19 18:28:53.256 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/swagger/index.html - null null
+2025-03-19 18:28:53.259 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/swagger/index.html - 200 null text/html;charset=utf-8 2.7771ms
+2025-03-19 18:28:53.262 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/swagger/index.html - null null
+2025-03-19 18:28:53.264 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/swagger/index.html - 200 null text/html;charset=utf-8 2.4575ms
+2025-03-19 18:28:53.310 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/_framework/aspnetcore-browser-refresh.js - null null
+2025-03-19 18:28:53.311 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/swagger/index.js - null null
+2025-03-19 18:28:53.312 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/_framework/aspnetcore-browser-refresh.js - 200 13748 application/javascript; charset=utf-8 2.2419ms
+2025-03-19 18:28:53.314 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/swagger/index.js - 200 null application/javascript;charset=utf-8 3.4648ms
+2025-03-19 18:28:53.316 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/_framework/aspnetcore-browser-refresh.js - null null
+2025-03-19 18:28:53.320 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/swagger/index.js - null null
+2025-03-19 18:28:53.324 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/_framework/aspnetcore-browser-refresh.js - 200 13748 application/javascript; charset=utf-8 7.5574ms
+2025-03-19 18:28:53.328 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/swagger/index.js - 200 null application/javascript;charset=utf-8 7.4942ms
+2025-03-19 18:28:53.443 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/swagger/v1/swagger.json - null null
+2025-03-19 18:28:53.452 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 9.1466ms
+2025-03-19 18:28:53.454 +07:00 [INF] Request starting HTTP/1.1 GET http://localhost:5155/swagger/v1/swagger.json - null null
+2025-03-19 18:28:53.464 +07:00 [INF] Request finished HTTP/1.1 GET http://localhost:5155/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 10.4254ms

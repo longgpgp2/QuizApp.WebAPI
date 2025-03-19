@@ -1,4 +1,6 @@
 using AutoMapper;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using QuizApp.Business.ViewModels.AnswerViews;
@@ -11,6 +13,8 @@ namespace QuizApp.WebAPI.Controllers;
 
 [Route("api/[controller]s")]
 [ApiController]
+[Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+
 public class QuestionController : ControllerBase
 {
     private readonly IQuestionService _questionService;
@@ -45,21 +49,19 @@ public class QuestionController : ControllerBase
     }
 
     [HttpPost]
+    [Authorize(Roles = "Admin,Editor")]
     public async Task<IActionResult> CreateQuestionWithAnswer([FromBody] QuestionCreateViewModel questionCreateViewModel)
     {
-
+        if (!ModelState.IsValid)
+        {
+            return BadRequest(ModelState);
+        }
         return Ok(await _questionService.AddAsync(questionCreateViewModel));
-    }
-
-
-    [HttpPut]
-    public async Task<IActionResult> Update(Question question)
-    {
-        return Ok(await _questionService.UpdateAsync(question));
     }
 
     [HttpPut]
     [Route("{id}")]
+    [Authorize(Roles = "Admin,Editor")]
     public async Task<IActionResult> UpdateQuestionWithAnswer([FromRoute] Guid id, [FromBody] QuestionEditViewModel questionEditViewModel)
     {
         return Ok(await _questionService.UpdateAsync(id, questionEditViewModel));
@@ -67,6 +69,7 @@ public class QuestionController : ControllerBase
 
     [HttpDelete]
     [Route("{id}")]
+    [Authorize(Roles = "Admin,Editor")]
     public async Task<IActionResult> Delete(Guid id)
     {
         return Ok(await _questionService.DeleteAsync(id));
