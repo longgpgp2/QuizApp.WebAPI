@@ -1,6 +1,8 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using QuizApp.Business.Services;
+using QuizApp.Business.Services.AuthService;
+using QuizApp.Business.ViewModels.AuthViews;
 using QuizApp.Business.ViewModels.UserViews;
 
 namespace QuizApp.WebAPI.Controllers;
@@ -9,38 +11,34 @@ namespace QuizApp.WebAPI.Controllers;
 [ApiController]
 public class AuthController : ControllerBase
 {
-    private readonly IUserService _userService;
+    private readonly IAuthService _authService;
 
-    public AuthController(IUserService userService)
+    public AuthController(IAuthService authService)
     {
-        _userService = userService;
+        _authService = authService;
     }
 
     [HttpPost]
     [Route("login")]
-    public async Task<IActionResult> Login([FromBody] UserLoginRequest request)
+    public async Task<IActionResult> Login([FromBody] LoginViewModel model)
     {
         if (!ModelState.IsValid)
         {
             return BadRequest(ModelState);
         }
 
-        var result = await _userService.SignInAsync(request.UserName, request.Password, false, false);
-
-        return Ok(result);
+        return Ok(await _authService.LoginAsync(model));
     }
 
     [HttpPost]
-    [Route("logout")]
-    public async Task<IActionResult> Logout()
+    [Route("register")]
+    public async Task<IActionResult> Register([FromBody] RegisterViewModel model)
     {
         if (!ModelState.IsValid)
         {
             return BadRequest(ModelState);
         }
 
-        await _userService.SignOutAsync();
-
-        return Ok();
+        return Ok(await _authService.RegisterAsync(model));
     }
 }
